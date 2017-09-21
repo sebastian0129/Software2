@@ -19,5 +19,7 @@ namespace Software2.Models
         public int idEspecie { get; set; }
         [ForeignKey("idEspecie")]
         public Especie especie { set; get; }
+
+        public List<Mascota> mascotas { get; set; }
     }
 }
