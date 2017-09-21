@@ -9,6 +9,8 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    @*<link href="~/content/datatables/css/jquery.datatables.min.css" rel="stylesheet" />*@
+    <link href="~/content/datatables/css/datatables.bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="wrapper">
@@ -118,6 +120,11 @@
     @Scripts.Render("~/bundles/bootstrap")
     
     @RenderSection("scripts", required: false)
+
+    <script src="~/scripts/datatables/jquery.datatables.min.js"></script>
+    <script src="~/scripts/datatables/datatables.bootstrap.min.js"></script>
+
+   <script src="~/scripts/datatables.js"></script>
     <script src="~/Scripts/Views/material.min.js"></script>
     <script src="~/Scripts/Views/chartist.min.js"></script>
     <script src="~/Scripts/Views/arrive.min.js"></script>
