@@ -29,5 +29,9 @@ namespace Software2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Software2.Models.Especie> Especies { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Raza> Razas { get; set; }
     }
 }

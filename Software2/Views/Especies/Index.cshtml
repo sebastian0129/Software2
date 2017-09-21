@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Software2.Models.Especie>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-xs-4"></div>
+<div class="col-xs-4" style="font-family:'Agency FB'; font-size:xx-large;text-align:center; align-content:center">
+LISTADO DE ESPECIES
+</div>
+<br />
+<br />
+
+<div class="col-xs-4"></div>
+
+<div class="col-xs-12">
+<div class="col-xs-2"></div>
+<div class="col-xs-8">
+    <table class="table table-striped">
+
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td >
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td style="text-align:center">
+                    <button type="button" class="btn btn-info btn-xs" onclick="window.location ='//localhost:49959/Especies/Edit/' + @Html.DisplayFor(modelItem => item.id)">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button type="button" class="btn btn-success btn-xs" onclick="window.location ='//localhost:49959/Especies/Details/' + @Html.DisplayFor(modelItem => item.id)">
+                        <span class="glyphicon glyphicon-fullscreen"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-xs" onclick="window.location ='//localhost:49959/Especies/Delete/' + @Html.DisplayFor(modelItem => item.id)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                  
+                    
+
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    
+        <button type="button" class="btn btn-block" onclick="window.location='//localhost:49959/Especies/Create'" >Agregar Especie</button>
+        
+</div>
+<div class="col-xs-2"></div>
+</div>

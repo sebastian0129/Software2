@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Software2.Models.Raza>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Razas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="col-xs-12">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
+    <table class="table table-striped">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                
+                <td style="text-align:center">
+                    <button type="button" class="btn btn-info btn-xs" onclick="window.location ='//localhost:49959/Razas/Edit/' + @Html.DisplayFor(modelItem => item.id)">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button type="button" class="btn btn-success btn-xs" onclick="window.location ='//localhost:49959/Razas/Details/' + @Html.DisplayFor(modelItem => item.id)">
+                        <span class="glyphicon glyphicon-fullscreen"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-xs" onclick="window.location ='//localhost:49959/Razas/Delete/' + @Html.DisplayFor(modelItem => item.id)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+
+
+
+
+                </td>
+                
+            </tr>
+        }
+
+    </table>
+        </div>
+        <div class="col-xs-2"></div>
+
+</div>
