@@ -6,14 +6,14 @@ namespace Software2.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class me2 : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-beta1-60406")]
+    public sealed partial class changePassword : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(me2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changePassword));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709211621065_me2"; }
+            get { return "201709210420165_changePassword"; }
         }
         
         string IMigrationMetadata.Source

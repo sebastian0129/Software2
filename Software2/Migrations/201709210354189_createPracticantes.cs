@@ -3,27 +3,28 @@ namespace Software2.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class esteban2 : DbMigration
+    public partial class createPracticantes : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Doctors",
+                "dbo.Practicantes",
                 c => new
                     {
-                        cedula = c.String(nullable: false, maxLength: 15),
+                        practicanteID = c.Int(nullable: false),
                         nombre = c.String(nullable: false),
                         apellido = c.String(nullable: false),
-                        email = c.String(nullable: false),
+                        correo = c.String(nullable: false),
                         password = c.String(nullable: false),
+                        repetirPassword = c.String(),
                     })
-                .PrimaryKey(t => t.cedula);
+                .PrimaryKey(t => t.practicanteID);
             
         }
         
         public override void Down()
         {
-            DropTable("dbo.Doctors");
+            DropTable("dbo.Practicantes");
         }
     }
 }
