@@ -37,7 +37,7 @@ namespace Software2.Controllers
 
         // GET: Practicantes/Create
         public ActionResult Create()
-        {
+        { 
             return View();
         }
 
