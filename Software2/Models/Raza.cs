@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 
 namespace Software2.Models
-{ 
+{
     public class Raza
     {
         public int id { set; get; }
