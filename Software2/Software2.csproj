@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -189,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\EspeciesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -204,8 +206,25 @@
     <Compile Include="Migrations\201709210200257_m2.Designer.cs">
       <DependentUpon>201709210200257_m2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709211615318_me1.cs" />
+    <Compile Include="Migrations\201709211615318_me1.Designer.cs">
+      <DependentUpon>201709211615318_me1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709211621065_me2.cs" />
+    <Compile Include="Migrations\201709211621065_me2.Designer.cs">
+      <DependentUpon>201709211621065_me2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709211633295_esteban2.cs" />
+    <Compile Include="Migrations\201709211633295_esteban2.Designer.cs">
+      <DependentUpon>201709211633295_esteban2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709211649522_esteban21.cs" />
+    <Compile Include="Migrations\201709211649522_esteban21.Designer.cs">
+      <DependentUpon>201709211649522_esteban21.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Especie.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -306,6 +325,11 @@
     <Content Include="Views\Razas\Details.cshtml" />
     <Content Include="Views\Razas\Edit.cshtml" />
     <Content Include="Views\Razas\Index.cshtml" />
+    <Content Include="Views\Doctors\Create.cshtml" />
+    <Content Include="Views\Doctors\Delete.cshtml" />
+    <Content Include="Views\Doctors\Details.cshtml" />
+    <Content Include="Views\Doctors\Edit.cshtml" />
+    <Content Include="Views\Doctors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,6 +343,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709210200257_m2.resx">
       <DependentUpon>201709210200257_m2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709211615318_me1.resx">
+      <DependentUpon>201709211615318_me1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709211621065_me2.resx">
+      <DependentUpon>201709211621065_me2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709211633295_esteban2.resx">
+      <DependentUpon>201709211633295_esteban2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709211649522_esteban21.resx">
+      <DependentUpon>201709211649522_esteban21.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
