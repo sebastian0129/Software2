@@ -45,6 +45,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -114,12 +122,6 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -192,6 +194,7 @@
     <Compile Include="Controllers\EspeciesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PracticantesController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -204,11 +207,24 @@
     <Compile Include="Migrations\201709210200257_m2.Designer.cs">
       <DependentUpon>201709210200257_m2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709210354189_createPracticantes.cs" />
+    <Compile Include="Migrations\201709210354189_createPracticantes.Designer.cs">
+      <DependentUpon>201709210354189_createPracticantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709210420165_changePassword.cs" />
+    <Compile Include="Migrations\201709210420165_changePassword.Designer.cs">
+      <DependentUpon>201709210420165_changePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709210502410_changeSetPassword.cs" />
+    <Compile Include="Migrations\201709210502410_changeSetPassword.Designer.cs">
+      <DependentUpon>201709210502410_changeSetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Especie.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Practicante.cs" />
     <Compile Include="Models\Raza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -306,6 +322,11 @@
     <Content Include="Views\Razas\Details.cshtml" />
     <Content Include="Views\Razas\Edit.cshtml" />
     <Content Include="Views\Razas\Index.cshtml" />
+    <Content Include="Views\Practicantes\Create.cshtml" />
+    <Content Include="Views\Practicantes\Delete.cshtml" />
+    <Content Include="Views\Practicantes\Details.cshtml" />
+    <Content Include="Views\Practicantes\Edit.cshtml" />
+    <Content Include="Views\Practicantes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,6 +340,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709210200257_m2.resx">
       <DependentUpon>201709210200257_m2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709210354189_createPracticantes.resx">
+      <DependentUpon>201709210354189_createPracticantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709210420165_changePassword.resx">
+      <DependentUpon>201709210420165_changePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709210502410_changeSetPassword.resx">
+      <DependentUpon>201709210502410_changeSetPassword.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
