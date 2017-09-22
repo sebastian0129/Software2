@@ -10,107 +10,107 @@ using Software2.Models;
 
 namespace Software2.Controllers
 {
-    public class EspeciesController : Controller
+    public class DoctorsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Especies
+        // GET: Doctors
         public ActionResult Index()
         {
-            return View(db.Especies.ToList());
+            return View(db.Doctors.ToList());
         }
 
-        // GET: Especies/Details/5
-        public ActionResult Details(int? id)
+        // GET: Doctors/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Especie especie = db.Especies.Find(id);
-            if (especie == null)
+            Doctor doctor = db.Doctors.Find(id);
+            if (doctor == null)
             {
                 return HttpNotFound();
             }
-            return View(especie);
+            return View(doctor);
         }
 
-        // GET: Especies/Create
+        // GET: Doctors/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Especies/Create
+        // POST: Doctors/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nombre")] Especie especie)
+        public ActionResult Create([Bind(Include = "cedula,nombre,apellido,email,password")] Doctor doctor)
         {
             if (ModelState.IsValid)
             {
-                db.Especies.Add(especie);
+                db.Doctors.Add(doctor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(especie);
+            return View(doctor);
         }
 
-        // GET: Especies/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Doctors/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Especie especie = db.Especies.Find(id);
-            if (especie == null)
+            Doctor doctor = db.Doctors.Find(id);
+            if (doctor == null)
             {
                 return HttpNotFound();
             }
-            return View(especie);
+            return View(doctor);
         }
 
-        // POST: Especies/Edit/5
+        // POST: Doctors/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nombre")] Especie especie)
+        public ActionResult Edit([Bind(Include = "cedula,nombre,apellido,email,password")] Doctor doctor)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(especie).State = EntityState.Modified;
+                db.Entry(doctor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(especie);
+            return View(doctor);
         }
 
-        // GET: Especies/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Doctors/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Especie especie = db.Especies.Find(id);
-            if (especie == null)
+            Doctor doctor = db.Doctors.Find(id);
+            if (doctor == null)
             {
                 return HttpNotFound();
             }
-            return View(especie);
+            return View(doctor);
         }
 
-        // POST: Especies/Delete/5
+        // POST: Doctors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Especie especie = db.Especies.Find(id);
-            db.Especies.Remove(especie);
+            Doctor doctor = db.Doctors.Find(id);
+            db.Doctors.Remove(doctor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

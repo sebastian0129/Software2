@@ -7,7 +7,7 @@ using System.Web;
 namespace Software2.Models
 {
     public class Doctor
-    {    
+    {
         
         [Required]
         [RegularExpression("[0-9]+", ErrorMessage ="La cedula solo puede contener números")]

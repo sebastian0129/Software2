@@ -34,9 +34,6 @@ namespace Software2.Models
 
         public System.Data.Entity.DbSet<Software2.Models.Raza> Razas { get; set; }
 
-        public System.Data.Entity.DbSet<Software2.Models.Propietario> Propietarios { get; set; }
-
-        public System.Data.Entity.DbSet<Software2.Models.Mascota> Mascotas { get; set; }
-        public System.Data.Entity.DbSet<Software2.Models.Practicante> Practicantes { get; set; }
+        public System.Data.Entity.DbSet<Software2.Models.Doctor> Doctors { get; set; }
     }
 }
