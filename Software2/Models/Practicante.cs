@@ -8,7 +8,7 @@ using System.Web;
 namespace Software2.Models
 {
     public class Practicante
-    {
+    { 
 
         [Key]
         [Required(ErrorMessage = "El ID es obligatorio")]
