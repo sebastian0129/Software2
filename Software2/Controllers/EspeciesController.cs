@@ -48,6 +48,11 @@ namespace Software2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nombre")] Especie especie)
         {
+            if (existEspecie(especie.nombre))
+            {
+                ModelState.AddModelError("", "Ya existe una especie con este nombre");
+                return View();
+            }
             if (ModelState.IsValid)
             {
                 db.Especies.Add(especie);
@@ -122,6 +127,11 @@ namespace Software2.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private bool existEspecie(String nombre)
+        {
+            return db.Especies.Count(x => x.nombre.ToUpper() == nombre.ToUpper()) > 0;
         }
     }
 }
