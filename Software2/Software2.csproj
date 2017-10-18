@@ -45,6 +45,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -114,12 +122,6 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -191,6 +193,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\EspeciesController.cs" />
+    <Compile Include="Controllers\GestionVacunacionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
@@ -200,28 +203,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709202148406_m1.cs" />
-    <Compile Include="Migrations\201709202148406_m1.Designer.cs">
-      <DependentUpon>201709202148406_m1.cs</DependentUpon>
+    <Compile Include="Migrations\201710120839092_migration1Sebas.cs" />
+    <Compile Include="Migrations\201710120839092_migration1Sebas.Designer.cs">
+      <DependentUpon>201710120839092_migration1Sebas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709210200257_m2.cs" />
-    <Compile Include="Migrations\201709210200257_m2.Designer.cs">
-      <DependentUpon>201709210200257_m2.cs</DependentUpon>
+    <Compile Include="Migrations\201710162228188_modifyMascotaSebas.cs" />
+    <Compile Include="Migrations\201710162228188_modifyMascotaSebas.Designer.cs">
+      <DependentUpon>201710162228188_modifyMascotaSebas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709211838041_m2andres.cs" />
-    <Compile Include="Migrations\201709211838041_m2andres.Designer.cs">
-      <DependentUpon>201709211838041_m2andres.cs</DependentUpon>
+    <Compile Include="Migrations\201710170734507_modifyPropietarioSebas.cs" />
+    <Compile Include="Migrations\201710170734507_modifyPropietarioSebas.Designer.cs">
+      <DependentUpon>201710170734507_modifyPropietarioSebas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Especie.cs" />
+    <Compile Include="Models\Formula.cs" />
+    <Compile Include="Models\GestionVacunacion.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Mascota.cs" />
+    <Compile Include="Models\Medicamento.cs" />
     <Compile Include="Models\Practicante.cs" />
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Raza.cs" />
+    <Compile Include="Models\ViaSuministro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -575,6 +582,11 @@
     <Content Include="Views\Doctors\Details.cshtml" />
     <Content Include="Views\Doctors\Edit.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
+    <Content Include="Views\GestionVacunacions\Create.cshtml" />
+    <Content Include="Views\GestionVacunacions\Delete.cshtml" />
+    <Content Include="Views\GestionVacunacions\Details.cshtml" />
+    <Content Include="Views\GestionVacunacions\Edit.cshtml" />
+    <Content Include="Views\GestionVacunacions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -583,14 +595,14 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709202148406_m1.resx">
-      <DependentUpon>201709202148406_m1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710120839092_migration1Sebas.resx">
+      <DependentUpon>201710120839092_migration1Sebas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709210200257_m2.resx">
-      <DependentUpon>201709210200257_m2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710162228188_modifyMascotaSebas.resx">
+      <DependentUpon>201710162228188_modifyMascotaSebas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709211838041_m2andres.resx">
-      <DependentUpon>201709211838041_m2andres.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710170734507_modifyPropietarioSebas.resx">
+      <DependentUpon>201710170734507_modifyPropietarioSebas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

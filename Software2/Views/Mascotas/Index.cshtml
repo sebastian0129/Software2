@@ -55,7 +55,10 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }) |
+            <a href="@Url.Action("Index", "GestionVacunacions",new { id=item.id})" class="option-item text-info">
+                <p> Agregar vacuna</p>
+            </a>
         </td>
     </tr>
 }
