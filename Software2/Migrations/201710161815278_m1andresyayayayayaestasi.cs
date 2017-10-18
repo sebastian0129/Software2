@@ -3,10 +3,22 @@ namespace Software2.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class m1 : DbMigration
+    public partial class m1andresyayayayayaestasi : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Doctors",
+                c => new
+                    {
+                        cedula = c.String(nullable: false, maxLength: 15),
+                        nombre = c.String(nullable: false),
+                        apellido = c.String(nullable: false),
+                        email = c.String(nullable: false),
+                        password = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.cedula);
+            
             CreateTable(
                 "dbo.Especies",
                 c => new
@@ -21,11 +33,55 @@ namespace Software2.Migrations
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
-                        Especie_id = c.Int(),
+                        nombre = c.String(nullable: false, maxLength: 30),
+                        idEspecie = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
-                .ForeignKey("dbo.Especies", t => t.Especie_id)
-                .Index(t => t.Especie_id);
+                .ForeignKey("dbo.Especies", t => t.idEspecie, cascadeDelete: true)
+                .Index(t => t.idEspecie);
+            
+            CreateTable(
+                "dbo.Mascotas",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        nombre = c.String(nullable: false),
+                        fecha_nacimiento = c.DateTime(nullable: false),
+                        sexo = c.Int(nullable: false),
+                        color = c.Int(nullable: false),
+                        raza = c.Int(nullable: false),
+                        propietario = c.Long(nullable: false),
+                    })
+                .PrimaryKey(t => t.id)
+                .ForeignKey("dbo.Propietarios", t => t.propietario, cascadeDelete: true)
+                .ForeignKey("dbo.Razas", t => t.raza, cascadeDelete: true)
+                .Index(t => t.raza)
+                .Index(t => t.propietario);
+            
+            CreateTable(
+                "dbo.Propietarios",
+                c => new
+                    {
+                        cedula = c.Long(nullable: false),
+                        nombre = c.String(nullable: false),
+                        apellido = c.String(nullable: false),
+                        celular = c.String(nullable: false),
+                        correo = c.String(),
+                    })
+                .PrimaryKey(t => t.cedula);
+            
+            CreateTable(
+                "dbo.Practicantes",
+                c => new
+                    {
+                        practicanteID = c.Int(nullable: false),
+                        nombre = c.String(nullable: false),
+                        apellido = c.String(nullable: false),
+                        correo = c.String(nullable: false),
+                        password = c.String(nullable: false),
+                        repetirPassword = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.practicanteID);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -49,6 +105,24 @@ namespace Software2.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.SolicitudExamen",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        numeroRecibo = c.Int(nullable: false),
+                        mascota = c.Int(nullable: false),
+                        muestraRemitida = c.String(nullable: false),
+                        examenSolicitado = c.String(nullable: false),
+                        diagnosticoPresuntivo = c.String(nullable: false),
+                        idPracticante = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.id)
+                .ForeignKey("dbo.Mascotas", t => t.mascota, cascadeDelete: true)
+                .ForeignKey("dbo.Practicantes", t => t.idPracticante, cascadeDelete: true)
+                .Index(t => t.mascota)
+                .Index(t => t.idPracticante);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -102,22 +176,35 @@ namespace Software2.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.SolicitudExamen", "idPracticante", "dbo.Practicantes");
+            DropForeignKey("dbo.SolicitudExamen", "mascota", "dbo.Mascotas");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Razas", "Especie_id", "dbo.Especies");
+            DropForeignKey("dbo.Mascotas", "raza", "dbo.Razas");
+            DropForeignKey("dbo.Mascotas", "propietario", "dbo.Propietarios");
+            DropForeignKey("dbo.Razas", "idEspecie", "dbo.Especies");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.SolicitudExamen", new[] { "idPracticante" });
+            DropIndex("dbo.SolicitudExamen", new[] { "mascota" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Razas", new[] { "Especie_id" });
+            DropIndex("dbo.Mascotas", new[] { "propietario" });
+            DropIndex("dbo.Mascotas", new[] { "raza" });
+            DropIndex("dbo.Razas", new[] { "idEspecie" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.SolicitudExamen");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Practicantes");
+            DropTable("dbo.Propietarios");
+            DropTable("dbo.Mascotas");
             DropTable("dbo.Razas");
             DropTable("dbo.Especies");
+            DropTable("dbo.Doctors");
         }
     }
 }
