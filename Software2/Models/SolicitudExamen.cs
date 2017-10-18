@@ -46,3 +46,5 @@ namespace Software2.Models
         public Practicante practicanteFK { set; get; }
     }
 }
+
+
