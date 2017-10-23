@@ -199,15 +199,10 @@
     <Compile Include="Controllers\PracticantesController.cs" />
     <Compile Include="Controllers\PropietariosController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
-    <Compile Include="Controllers\SolicitudExamenController.cs" />
+    <Compile Include="Controllers\SoliExamenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710161815278_m1andresyayayayayaestasi.cs" />
-    <Compile Include="Migrations\201710161815278_m1andresyayayayayaestasi.Designer.cs">
-      <DependentUpon>201710161815278_m1andresyayayayayaestasi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Especie.cs" />
@@ -217,7 +212,7 @@
     <Compile Include="Models\Practicante.cs" />
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Raza.cs" />
-    <Compile Include="Models\SolicitudExamen.cs" />
+    <Compile Include="Models\SoliExamen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -571,22 +566,17 @@
     <Content Include="Views\Doctors\Details.cshtml" />
     <Content Include="Views\Doctors\Edit.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
-    <Content Include="Views\SolicitudExamen\Create.cshtml" />
-    <Content Include="Views\SolicitudExamen\Delete.cshtml" />
-    <Content Include="Views\SolicitudExamen\Details.cshtml" />
-    <Content Include="Views\SolicitudExamen\Edit.cshtml" />
-    <Content Include="Views\SolicitudExamen\Index.cshtml" />
+    <Content Include="Views\SoliExamen\Create.cshtml" />
+    <Content Include="Views\SoliExamen\Delete.cshtml" />
+    <Content Include="Views\SoliExamen\Details.cshtml" />
+    <Content Include="Views\SoliExamen\Edit.cshtml" />
+    <Content Include="Views\SoliExamen\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710161815278_m1andresyayayayayaestasi.resx">
-      <DependentUpon>201710161815278_m1andresyayayayayaestasi.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
