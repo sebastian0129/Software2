@@ -200,17 +200,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709202148406_m1.cs" />
-    <Compile Include="Migrations\201709202148406_m1.Designer.cs">
-      <DependentUpon>201709202148406_m1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709210200257_m2.cs" />
-    <Compile Include="Migrations\201709210200257_m2.Designer.cs">
-      <DependentUpon>201709210200257_m2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709211838041_m2andres.cs" />
-    <Compile Include="Migrations\201709211838041_m2andres.Designer.cs">
-      <DependentUpon>201709211838041_m2andres.cs</DependentUpon>
+    <Compile Include="Migrations\201710122010314_mg1.cs" />
+    <Compile Include="Migrations\201710122010314_mg1.Designer.cs">
+      <DependentUpon>201710122010314_mg1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -583,14 +575,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709202148406_m1.resx">
-      <DependentUpon>201709202148406_m1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709210200257_m2.resx">
-      <DependentUpon>201709210200257_m2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709211838041_m2andres.resx">
-      <DependentUpon>201709211838041_m2andres.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710122010314_mg1.resx">
+      <DependentUpon>201710122010314_mg1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -11,9 +11,11 @@ namespace Software2.Models
     {
         [Key]
         public int id { get; set; }
+
         [Display(Name ="Nombre")]
         [Required(ErrorMessage ="El campo Nombre es obligatorio")]
         public string nombre { get; set; }
+
         [Display(Name = "Fecha de nacimiento")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "El campo Fecha de nacimiento es obligatorio")]
