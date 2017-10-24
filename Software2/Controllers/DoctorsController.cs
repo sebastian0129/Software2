@@ -18,6 +18,7 @@ namespace Software2.Controllers
         public ActionResult Index()
         {
             return View(db.Doctors.ToList());
+            //hola papus de nuevo
         }
 
         // GET: Doctors/Details/5
