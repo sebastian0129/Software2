@@ -33,14 +33,24 @@ namespace Software2.Models
 
         [Display(Name = "Propietario")]
         [ForeignKey("propietarioFK")]
-        public long propietario { get; set; }
+        public long propietario{ get; set; }
 
+        public virtual Propietario propietarioFK { get; set; }
 
-
-        public Propietario propietarioFK { get; set; }
-        public Raza razaFK { get; set; }
+        public virtual Raza razaFK { get; set; }
 
         public enum sexos { Hembra,Macho};
+
         public enum colores {Blanco,Negro,Dorado}
+
+        public virtual ICollection<GestionVacunacion> gestionVacunacion { get; set; }
+
+
+        [Display(Name = "Edad")]
+        public int edad { get {
+                return DateTime.Today.AddTicks(-this.fecha_nacimiento.Ticks).Year - 1;
+            } }
+
     }
+
 }
