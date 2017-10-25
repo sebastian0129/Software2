@@ -200,6 +200,7 @@
     <Compile Include="Controllers\PracticantesController.cs" />
     <Compile Include="Controllers\PropietariosController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
+    <Compile Include="Controllers\SolicitudExamenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,6 +230,7 @@
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Raza.cs" />
     <Compile Include="Models\ViaSuministro.cs" />
+    <Compile Include="Models\SolicitudExamen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -590,6 +592,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
