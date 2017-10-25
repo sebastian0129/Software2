@@ -20,6 +20,7 @@ namespace Software2.Controllers
 
         public AccountController()
         {
+            //holi papus
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )

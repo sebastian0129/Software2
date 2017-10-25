@@ -18,6 +18,7 @@ namespace Software2.Controllers
         public ActionResult Index()
         {
             return View(db.Especies.ToList());
+            //holi muchachos
         }
 
         // GET: Especies/Details/5
