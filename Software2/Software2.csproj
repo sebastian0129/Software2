@@ -205,6 +205,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710260128556_mg2carlos.cs" />
+    <Compile Include="Migrations\201710260128556_mg2carlos.Designer.cs">
+      <DependentUpon>201710260128556_mg2carlos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Control.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -584,12 +589,22 @@
     <Content Include="Views\Control\Details.cshtml" />
     <Content Include="Views\Control\Edit.cshtml" />
     <Content Include="Views\Control\Index.cshtml" />
+    <Content Include="Views\SolicitudExamen\Create.cshtml" />
+    <Content Include="Views\SolicitudExamen\Delete.cshtml" />
+    <Content Include="Views\SolicitudExamen\Details.cshtml" />
+    <Content Include="Views\SolicitudExamen\Edit.cshtml" />
+    <Content Include="Views\SolicitudExamen\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710260128556_mg2carlos.resx">
+      <DependentUpon>201710260128556_mg2carlos.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

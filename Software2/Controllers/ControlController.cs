@@ -17,8 +17,7 @@ namespace Software2.Controllers
         // GET: Control
         public ActionResult Index()
         {
-            var controls = db.Controls.Include(c => c.historiaclinica);
-            return View(controls.ToList());
+            return View(db.Controls.ToList());
         }
 
         // GET: Control/Details/5
@@ -39,7 +38,8 @@ namespace Software2.Controllers
         // GET: Control/Create
         public ActionResult Create()
         {
-            ViewBag.historia = new SelectList(db.HistoriaClinicas, "id", "id");
+
+
             return View();
         }
 
@@ -48,16 +48,16 @@ namespace Software2.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,fecha,historia,anamnesis,temperatura,fc,mucosas,fr,tiempo,piel,muscolo,ojos,cardiovascular,respiratorio,digestivo,genito,reproducor,nervioso,linfatico,des_piel,des_muscolo,des_ojos,des_cardiovascular,des_respiratorio,des_digestivo,des_genito,des_reproducor,des_nervioso,des_linfatico,anormalidades,problemas,ayudas,fianl")] Control control)
+        public ActionResult Create([Bind(Include = "id,fecha,anamnesis,temperatura,fc,mucosas,fr,tiempo,piel,muscolo,ojos,cardiovascular,respiratorio,digestivo,genito,reproducor,nervioso,linfatico,des_piel,des_muscolo,des_ojos,des_cardiovascular,des_respiratorio,des_digestivo,des_genito,des_reproducor,des_nervioso,des_linfatico,anormalidades,problemas,ayudas,fianl")] Control control)
         {
             if (ModelState.IsValid)
             {
+                control.fecha = DateTime.Now;
                 db.Controls.Add(control);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.historia = new SelectList(db.HistoriaClinicas, "id", "id", control.historia);
             return View(control);
         }
 
@@ -73,7 +73,6 @@ namespace Software2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.historia = new SelectList(db.HistoriaClinicas, "id", "id", control.historia);
             return View(control);
         }
 
@@ -82,7 +81,7 @@ namespace Software2.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,fecha,historia,anamnesis,temperatura,fc,mucosas,fr,tiempo,piel,muscolo,ojos,cardiovascular,respiratorio,digestivo,genito,reproducor,nervioso,linfatico,des_piel,des_muscolo,des_ojos,des_cardiovascular,des_respiratorio,des_digestivo,des_genito,des_reproducor,des_nervioso,des_linfatico,anormalidades,problemas,ayudas,fianl")] Control control)
+        public ActionResult Edit([Bind(Include = "id,fecha,anamnesis,temperatura,fc,mucosas,fr,tiempo,piel,muscolo,ojos,cardiovascular,respiratorio,digestivo,genito,reproducor,nervioso,linfatico,des_piel,des_muscolo,des_ojos,des_cardiovascular,des_respiratorio,des_digestivo,des_genito,des_reproducor,des_nervioso,des_linfatico,anormalidades,problemas,ayudas,fianl")] Control control)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +89,6 @@ namespace Software2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.historia = new SelectList(db.HistoriaClinicas, "id", "id", control.historia);
             return View(control);
         }
 

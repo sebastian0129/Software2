@@ -13,8 +13,8 @@ namespace Software2.Models
         public long id { get; set; }
 
         public DateTime fecha { get; set; }
-           
-        [Display(Name ="Historia clinica")]
+
+        [Display(Name = "Historia clinica")]
         [ForeignKey("historiaclinica")]
         public string historia { get; set; }
 
@@ -114,6 +114,7 @@ namespace Software2.Models
        
 
         #region detalles
+
         [Display(Name ="Anormalidades")]
         public string anormalidades { get; set; }
 
@@ -123,13 +124,14 @@ namespace Software2.Models
         [Display(Name = "Ayudas diagnósticas")]
         public string ayudas { get; set; }
 
+        [Required]
         [Display(Name = "Diagnóstico final")]
         public string fianl { get; set; }
         #endregion detalles
 
         public enum opciones
         {
-            Anormal, normal, No_aplica
+            Anormal,Normal,No_aplica
         }
 
         
