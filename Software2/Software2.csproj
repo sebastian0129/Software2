@@ -193,10 +193,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\EspeciesController.cs" />
+    <Compile Include="Controllers\FormulasController.cs" />
     <Compile Include="Controllers\GestionVacunacionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
+    <Compile Include="Controllers\MedicamentosController.cs" />
     <Compile Include="Controllers\PracticantesController.cs" />
     <Compile Include="Controllers\PropietariosController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
@@ -589,6 +591,16 @@
     <Content Include="Views\GestionVacunacions\Details.cshtml" />
     <Content Include="Views\GestionVacunacions\Edit.cshtml" />
     <Content Include="Views\GestionVacunacions\Index.cshtml" />
+    <Content Include="Views\Medicamentos\Create.cshtml" />
+    <Content Include="Views\Medicamentos\Delete.cshtml" />
+    <Content Include="Views\Medicamentos\Details.cshtml" />
+    <Content Include="Views\Medicamentos\Edit.cshtml" />
+    <Content Include="Views\Medicamentos\Index.cshtml" />
+    <Content Include="Views\Formulas\Create.cshtml" />
+    <Content Include="Views\Formulas\Delete.cshtml" />
+    <Content Include="Views\Formulas\Details.cshtml" />
+    <Content Include="Views\Formulas\Edit.cshtml" />
+    <Content Include="Views\Formulas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

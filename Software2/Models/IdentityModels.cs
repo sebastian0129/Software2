@@ -45,5 +45,9 @@ namespace Software2.Models
         public System.Data.Entity.DbSet<Software2.Models.SolicitudExamen> SolicitudExamen { get; set; }
 
         public System.Data.Entity.DbSet<Software2.Models.GestionVacunacion> GestionVacunacions { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Medicamento> Medicamentoes { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Formula> Formulae { get; set; }
     }
 }
