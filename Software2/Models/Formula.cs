@@ -15,7 +15,7 @@ namespace Software2.Models
 
         [Display(Name = "ID Mascota")]
         [ForeignKey("Mascota")]
-        public int mascotaID { get; set; }
+        public string mascotaID { get; set; }
 
         public virtual Mascota Mascota { get; set; }
 
