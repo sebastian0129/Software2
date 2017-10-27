@@ -191,6 +191,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ControlController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\EspeciesController.cs" />
     <Compile Include="Controllers\FormulasController.cs" />
@@ -206,24 +207,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710120839092_migration1Sebas.cs" />
-    <Compile Include="Migrations\201710120839092_migration1Sebas.Designer.cs">
-      <DependentUpon>201710120839092_migration1Sebas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710162228188_modifyMascotaSebas.cs" />
-    <Compile Include="Migrations\201710162228188_modifyMascotaSebas.Designer.cs">
-      <DependentUpon>201710162228188_modifyMascotaSebas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710170734507_modifyPropietarioSebas.cs" />
-    <Compile Include="Migrations\201710170734507_modifyPropietarioSebas.Designer.cs">
-      <DependentUpon>201710170734507_modifyPropietarioSebas.cs</DependentUpon>
+    <Compile Include="Migrations\201710260128556_mg2carlos.cs" />
+    <Compile Include="Migrations\201710260128556_mg2carlos.Designer.cs">
+      <DependentUpon>201710260128556_mg2carlos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Control.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Especie.cs" />
     <Compile Include="Models\Formula.cs" />
     <Compile Include="Models\GestionVacunacion.cs" />
+    <Compile Include="Models\HistoriaClinica.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Mascota.cs" />
@@ -601,23 +596,26 @@
     <Content Include="Views\Formulas\Details.cshtml" />
     <Content Include="Views\Formulas\Edit.cshtml" />
     <Content Include="Views\Formulas\Index.cshtml" />
+    <Content Include="Views\Control\Create.cshtml" />
+    <Content Include="Views\Control\Delete.cshtml" />
+    <Content Include="Views\Control\Details.cshtml" />
+    <Content Include="Views\Control\Edit.cshtml" />
+    <Content Include="Views\Control\Index.cshtml" />
+    <Content Include="Views\SolicitudExamen\Create.cshtml" />
+    <Content Include="Views\SolicitudExamen\Delete.cshtml" />
+    <Content Include="Views\SolicitudExamen\Details.cshtml" />
+    <Content Include="Views\SolicitudExamen\Edit.cshtml" />
+    <Content Include="Views\SolicitudExamen\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710120839092_migration1Sebas.resx">
-      <DependentUpon>201710120839092_migration1Sebas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710162228188_modifyMascotaSebas.resx">
-      <DependentUpon>201710162228188_modifyMascotaSebas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710170734507_modifyPropietarioSebas.resx">
-      <DependentUpon>201710170734507_modifyPropietarioSebas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710260128556_mg2carlos.resx">
+      <DependentUpon>201710260128556_mg2carlos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
