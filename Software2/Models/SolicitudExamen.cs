@@ -19,7 +19,7 @@ namespace Software2.Models
 
         [Display(Name = "Mascota")]
         [ForeignKey("mascotaFK")]
-        public int mascota { get; set; }
+        public string mascota { get; set; }
         public Mascota mascotaFK { get; set; }
 
 

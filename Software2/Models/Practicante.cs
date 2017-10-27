@@ -41,5 +41,13 @@ namespace Software2.Models
         [Required(ErrorMessage = "Confirme contraseña")]
         [DataType(DataType.Password)]
         public string repetirPassword { get; set; }
+
+        public string nombreCompleto
+        {
+            get
+            {
+                return nombre + " " + apellido; 
+            }
+        }
     }
 }

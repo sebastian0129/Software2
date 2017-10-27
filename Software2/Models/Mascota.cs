@@ -10,7 +10,7 @@ namespace Software2.Models
     public class Mascota
     {
         [Key]
-        public int id { get; set; }
+        public string id { get; set; }
 
         [Display(Name ="Nombre")]
         [Required(ErrorMessage ="El campo Nombre es obligatorio")]
@@ -45,11 +45,18 @@ namespace Software2.Models
 
         public virtual ICollection<GestionVacunacion> gestionVacunacion { get; set; }
 
+        public virtual ICollection<Formula> formulas { get; set; }
+
+        public virtual ICollection<Remision> remisiones { get; set; } 
 
         [Display(Name = "Edad")]
         public int edad { get {
                 return DateTime.Today.AddTicks(-this.fecha_nacimiento.Ticks).Year - 1;
             } }
+
+
+     
+        public virtual HistoriaClinica historia { get; set;}
 
     }
 

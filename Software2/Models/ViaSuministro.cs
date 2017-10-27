@@ -9,8 +9,11 @@ namespace Software2.Models
     {
         Oral,
         Tópica,
+        Intramuscular,
+        Intravenosa,
+        BloqueParaLamer,
         Parental,
-        Vaginal,
+        Subcutánea,
         Rectal,
         Inhalatoria,
         Intranasal,
