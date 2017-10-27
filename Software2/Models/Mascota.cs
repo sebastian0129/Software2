@@ -45,6 +45,9 @@ namespace Software2.Models
 
         public virtual ICollection<GestionVacunacion> gestionVacunacion { get; set; }
 
+        public virtual ICollection<Formula> formulas { get; set; }
+
+        public virtual ICollection<Remision> remisiones { get; set; } 
 
         [Display(Name = "Edad")]
         public int edad { get {

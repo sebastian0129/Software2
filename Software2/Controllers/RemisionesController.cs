@@ -10,12 +10,12 @@ using Software2.Models;
 
 namespace Software2.Controllers
 {
-    public class FormulasController : Controller
+    public class RemisionesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Formulas
-        public ActionResult Index( int ? id)
+        // GET: Remisiones
+        public ActionResult Index(int ? id)
         {
             if (id == null)
             {
@@ -31,116 +31,122 @@ namespace Software2.Controllers
             }
 
 
-            return View(mascota.formulas.ToList());
+            return View(mascota.remisiones.ToList());
         }
 
-        // GET: Formulas/Details/5
+        // GET: Remisiones/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Formula formula = db.Formulae.Find(id);
-            if (formula == null)
+            Remision remision = db.Remisions.Find(id);
+            if (remision == null)
             {
                 return HttpNotFound();
             }
-            return View(formula);
+            return View(remision);
         }
 
-        // GET: Formulas/Create
-        public ActionResult Create()
+        // GET: Remisiones/Create
+        public ActionResult Create(int? id)
         {
-            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre");
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre");
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
-            Formula formula = new Formula();
-            formula.fecha = DateTime.Today;
-            return View(formula);
+            Mascota mascota = db.Mascotas.Find(id);
+
+            if (mascota == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.mascota = mascota;
 
 
+            Remision remision = new Remision();
+            remision.fechaRemision = DateTime.Today;
+            return View(remision);
         }
 
-
-        // POST: Formulas/Create
+        // POST: Remisiones/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "formulaID,mascotaID,fecha,practicanteID")] Formula formula)
+        public ActionResult Create([Bind(Include = "remisionID,mascotaID,practicanteID,region,vista,diagnostico,ecografia,evaluacion,resultado,observacion")] Remision remision)
         {
             if (ModelState.IsValid)
             {
-                db.Formulae.Add(formula);
+                db.Remisions.Add(remision);
                 db.SaveChanges();
-                
-
                 return RedirectToAction("Index");
             }
 
-            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", formula.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
-            return View(formula);
+            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", remision.mascotaID);
+            ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
+            return View(remision);
         }
 
-        // GET: Formulas/Edit/5
+        // GET: Remisiones/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Formula formula = db.Formulae.Find(id);
-            if (formula == null)
+            Remision remision = db.Remisions.Find(id);
+            if (remision == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", formula.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
-            return View(formula);
+            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", remision.mascotaID);
+            ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
+            return View(remision);
         }
 
-        // POST: Formulas/Edit/5
+        // POST: Remisiones/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "formulaID,mascotaID,fecha,practicanteID")] Formula formula)
+        public ActionResult Edit([Bind(Include = "remisionID,mascotaID,practicanteID,region,vista,diagnostico,ecografia,evaluacion,resultado,observacion")] Remision remision)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(formula).State = EntityState.Modified;
+                db.Entry(remision).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", formula.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
-            return View(formula);
+            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", remision.mascotaID);
+            ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
+            return View(remision);
         }
 
-        // GET: Formulas/Delete/5
+        // GET: Remisiones/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Formula formula = db.Formulae.Find(id);
-            if (formula == null)
+            Remision remision = db.Remisions.Find(id);
+            if (remision == null)
             {
                 return HttpNotFound();
             }
-            return View(formula);
+            return View(remision);
         }
 
-        // POST: Formulas/Delete/5
+        // POST: Remisiones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Formula formula = db.Formulae.Find(id);
-            db.Formulae.Remove(formula);
+            Remision remision = db.Remisions.Find(id);
+            db.Remisions.Remove(remision);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

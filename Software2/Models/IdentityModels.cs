@@ -53,5 +53,7 @@ namespace Software2.Models
         public System.Data.Entity.DbSet<Software2.Models.Control> Controls { get; set; }
 
         public System.Data.Entity.DbSet<Software2.Models.HistoriaClinica> HistoriaClinicas { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Remision> Remisions { get; set; }
     }
 }
