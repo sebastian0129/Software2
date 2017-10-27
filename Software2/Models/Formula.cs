@@ -20,6 +20,8 @@ namespace Software2.Models
         public virtual Mascota Mascota { get; set; }
 
         [Display(Name = "Fecha")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Ingrese una fecha")]
         public DateTime fecha { get; set; }
 

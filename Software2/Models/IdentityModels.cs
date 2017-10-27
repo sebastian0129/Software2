@@ -46,5 +46,7 @@ namespace Software2.Models
         public System.Data.Entity.DbSet<Software2.Models.Medicamento> Medicamentoes { get; set; }
 
         public System.Data.Entity.DbSet<Software2.Models.Formula> Formulae { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Remision> Remisions { get; set; }
     }
 }

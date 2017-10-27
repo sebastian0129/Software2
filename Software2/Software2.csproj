@@ -202,6 +202,7 @@
     <Compile Include="Controllers\PracticantesController.cs" />
     <Compile Include="Controllers\PropietariosController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
+    <Compile Include="Controllers\RemisionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -217,6 +218,26 @@
     <Compile Include="Migrations\201710170734507_modifyPropietarioSebas.Designer.cs">
       <DependentUpon>201710170734507_modifyPropietarioSebas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710260259105_migFormulaSebas.cs" />
+    <Compile Include="Migrations\201710260259105_migFormulaSebas.Designer.cs">
+      <DependentUpon>201710260259105_migFormulaSebas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710260325382_migFormula2Sebas.cs" />
+    <Compile Include="Migrations\201710260325382_migFormula2Sebas.Designer.cs">
+      <DependentUpon>201710260325382_migFormula2Sebas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710270442252_migRemisionSebas.cs" />
+    <Compile Include="Migrations\201710270442252_migRemisionSebas.Designer.cs">
+      <DependentUpon>201710270442252_migRemisionSebas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710270451273_migRemisionSebas2.cs" />
+    <Compile Include="Migrations\201710270451273_migRemisionSebas2.Designer.cs">
+      <DependentUpon>201710270451273_migRemisionSebas2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710270453292_migRemisionSebas3.cs" />
+    <Compile Include="Migrations\201710270453292_migRemisionSebas3.Designer.cs">
+      <DependentUpon>201710270453292_migRemisionSebas3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -230,6 +251,7 @@
     <Compile Include="Models\Practicante.cs" />
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Raza.cs" />
+    <Compile Include="Models\Remision.cs" />
     <Compile Include="Models\ViaSuministro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -599,6 +621,11 @@
     <Content Include="Views\Formulas\Details.cshtml" />
     <Content Include="Views\Formulas\Edit.cshtml" />
     <Content Include="Views\Formulas\Index.cshtml" />
+    <Content Include="Views\Remisiones\Create.cshtml" />
+    <Content Include="Views\Remisiones\Delete.cshtml" />
+    <Content Include="Views\Remisiones\Details.cshtml" />
+    <Content Include="Views\Remisiones\Edit.cshtml" />
+    <Content Include="Views\Remisiones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -615,6 +642,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710170734507_modifyPropietarioSebas.resx">
       <DependentUpon>201710170734507_modifyPropietarioSebas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710260259105_migFormulaSebas.resx">
+      <DependentUpon>201710260259105_migFormulaSebas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710260325382_migFormula2Sebas.resx">
+      <DependentUpon>201710260325382_migFormula2Sebas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710270442252_migRemisionSebas.resx">
+      <DependentUpon>201710270442252_migRemisionSebas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710270451273_migRemisionSebas2.resx">
+      <DependentUpon>201710270451273_migRemisionSebas2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710270453292_migRemisionSebas3.resx">
+      <DependentUpon>201710270453292_migRemisionSebas3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
