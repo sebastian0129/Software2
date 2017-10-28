@@ -17,12 +17,12 @@ namespace Software2.Controllers
         // GET: Mascotas
         public ActionResult Index()
         {
-            var mascotas = db.Mascotas.Include(m => m.propietarioFK).Include(m => m.razaFK);
+            var mascotas = db.Mascotas.Include(m => m.historia).Include(m => m.propietarioFK).Include(m => m.razaFK);
             return View(mascotas.ToList());
         }
 
         // GET: Mascotas/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -39,6 +39,7 @@ namespace Software2.Controllers
         // GET: Mascotas/Create
         public ActionResult Create()
         {
+            ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id");
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre");
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre");
             return View();
@@ -58,13 +59,14 @@ namespace Software2.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
             return View(mascota);
         }
 
         // GET: Mascotas/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -75,6 +77,7 @@ namespace Software2.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
             return View(mascota);
@@ -93,13 +96,14 @@ namespace Software2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
             return View(mascota);
         }
 
         // GET: Mascotas/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -116,7 +120,7 @@ namespace Software2.Controllers
         // POST: Mascotas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
             Mascota mascota = db.Mascotas.Find(id);
             db.Mascotas.Remove(mascota);

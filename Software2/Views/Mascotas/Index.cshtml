@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.historia.id)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.propietarioFK.nombre)
         </th>
         <th>
@@ -35,6 +38,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.historia.id)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.propietarioFK.nombre)
         </td>
         <td>
@@ -55,10 +61,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id }) |
-            <a href="@Url.Action("Index", "GestionVacunacions",new { id=item.id})" class="option-item text-info">
-                <p> Agregar vacuna</p>
-            </a>
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
         </td>
     </tr>
 }
