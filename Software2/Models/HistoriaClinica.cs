@@ -12,7 +12,10 @@ namespace Software2.Models
         [Key,ForeignKey("mascota")]
         public string id { get; set; }
 
-        public DateTime fecha_creacion;
+
+        [Display(Name ="Fecha de creacion")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime fecha_creacion { get; set; }
 
 
        
