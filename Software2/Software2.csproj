@@ -195,6 +195,7 @@
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\EspeciesController.cs" />
     <Compile Include="Controllers\GestionVacunacionsController.cs" />
+    <Compile Include="Controllers\HistoriaClinicaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
@@ -205,6 +206,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710260128556_mg2carlos.cs" />
+    <Compile Include="Migrations\201710260128556_mg2carlos.Designer.cs">
+      <DependentUpon>201710260128556_mg2carlos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710290438297_mg1cahcbh.cs" />
+    <Compile Include="Migrations\201710290438297_mg1cahcbh.Designer.cs">
+      <DependentUpon>201710290438297_mg1cahcbh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710290439426_mg1cacarlos.cs" />
+    <Compile Include="Migrations\201710290439426_mg1cacarlos.Designer.cs">
+      <DependentUpon>201710290439426_mg1cacarlos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Control.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -589,12 +603,25 @@
     <Content Include="Views\SolicitudExamen\Details.cshtml" />
     <Content Include="Views\SolicitudExamen\Edit.cshtml" />
     <Content Include="Views\SolicitudExamen\Index.cshtml" />
+    <Content Include="Views\HistoriaClinica\Details.cshtml" />
+    <Content Include="Views\HistoriaClinica\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710260128556_mg2carlos.resx">
+      <DependentUpon>201710260128556_mg2carlos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710290438297_mg1cahcbh.resx">
+      <DependentUpon>201710290438297_mg1cahcbh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710290439426_mg1cacarlos.resx">
+      <DependentUpon>201710290439426_mg1cacarlos.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -50,10 +50,21 @@ namespace Software2.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nombre,fecha_nacimiento,sexo,color,raza,propietario")] Mascota mascota)
+        public ActionResult Create(Mascota mascota)
         {
             if (ModelState.IsValid)
             {
+
+                if (mascota.fecha_nacimiento > DateTime.Now) //Esto no funciona pero hay que arreglarlo
+                {
+                    ModelState.AddModelError("Lafecha de nacimiento no es valida", "");
+                    return RedirectToAction("Index");
+                }
+                var historia = new HistoriaClinica();
+                historia.id = mascota.id;
+                historia.fecha_creacion = DateTime.Now.Date;
+                db.HistoriaClinicas.Add(historia);
+
                 db.Mascotas.Add(mascota);
                 db.SaveChanges();
                 return RedirectToAction("Index");
