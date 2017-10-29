@@ -196,6 +196,7 @@
     <Compile Include="Controllers\EspeciesController.cs" />
     <Compile Include="Controllers\FormulasController.cs" />
     <Compile Include="Controllers\GestionVacunacionsController.cs" />
+    <Compile Include="Controllers\HistoriaClinicaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
