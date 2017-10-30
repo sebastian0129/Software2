@@ -55,5 +55,13 @@ namespace Software2.Models
         public System.Data.Entity.DbSet<Software2.Models.HistoriaClinica> HistoriaClinicas { get; set; }
 
         public System.Data.Entity.DbSet<Software2.Models.Remision> Remisions { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Auto_Cirugia> Auto_Cirugia { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Auto_Necropsia> Auto_Necropsia { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Auto_Eutanasia> Auto_Eutanasia { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Auto_Consentimiento> Auto_Consentimiento { get; set; }
     }
 }
