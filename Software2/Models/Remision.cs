@@ -21,15 +21,9 @@ namespace Software2.Models
 
         [Display(Name = "ID Mascota")]
         [ForeignKey("Mascota")]
-        public int mascotaID { get; set; }
+        public string mascotaID { get; set; }
 
         public virtual Mascota Mascota { get; set; }
-
-        [Display(Name = "ID Practicante")]
-        [ForeignKey("Practicante")]
-        public int practicanteID { get; set; }
-
-        public virtual Practicante Practicante { get; set; }
 
         [Display(Name = "Region")]
         [Required(ErrorMessage = "Ingrese una region")]
