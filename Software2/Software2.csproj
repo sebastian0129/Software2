@@ -199,6 +199,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
+    <Compile Include="Controllers\MonitoreoController.cs" />
+    <Compile Include="Controllers\MonitoreoPacientesController.cs" />
+    <Compile Include="Controllers\PlanTerapeuticoController.cs" />
     <Compile Include="Controllers\PracticantesController.cs" />
     <Compile Include="Controllers\PropietariosController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
@@ -218,6 +221,10 @@
     <Compile Include="Migrations\201710290439426_mg1cacarlos.Designer.cs">
       <DependentUpon>201710290439426_mg1cacarlos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710300015228_jdasvdhav.cs" />
+    <Compile Include="Migrations\201710300015228_jdasvdhav.Designer.cs">
+      <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Control.cs" />
@@ -230,6 +237,9 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\Medicamento.cs" />
+    <Compile Include="Models\Monitoreo.cs" />
+    <Compile Include="Models\MonitoreoPacientes.cs" />
+    <Compile Include="Models\PlanTerapeutico.cs" />
     <Compile Include="Models\Practicante.cs" />
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Raza.cs" />
@@ -605,6 +615,21 @@
     <Content Include="Views\SolicitudExamen\Index.cshtml" />
     <Content Include="Views\HistoriaClinica\Details.cshtml" />
     <Content Include="Views\HistoriaClinica\Index.cshtml" />
+    <Content Include="Views\Monitoreo\Create.cshtml" />
+    <Content Include="Views\Monitoreo\Delete.cshtml" />
+    <Content Include="Views\Monitoreo\Details.cshtml" />
+    <Content Include="Views\Monitoreo\Edit.cshtml" />
+    <Content Include="Views\Monitoreo\Index.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Create.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Delete.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Details.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Edit.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Index.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Create.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Delete.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Details.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Edit.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -621,6 +646,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710290439426_mg1cacarlos.resx">
       <DependentUpon>201710290439426_mg1cacarlos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710300015228_jdasvdhav.resx">
+      <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
