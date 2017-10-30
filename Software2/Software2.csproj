@@ -213,17 +213,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710292330209_andresm1.cs" />
-    <Compile Include="Migrations\201710292330209_andresm1.Designer.cs">
-      <DependentUpon>201710292330209_andresm1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710292349437_andresm2.cs" />
-    <Compile Include="Migrations\201710292349437_andresm2.Designer.cs">
-      <DependentUpon>201710292349437_andresm2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710300009453_andresm3a.cs" />
-    <Compile Include="Migrations\201710300009453_andresm3a.Designer.cs">
-      <DependentUpon>201710300009453_andresm3a.cs</DependentUpon>
+    <Compile Include="Migrations\201710300323351_m1andresm.cs" />
+    <Compile Include="Migrations\201710300323351_m1andresm.Designer.cs">
+      <DependentUpon>201710300323351_m1andresm.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -659,14 +651,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710292330209_andresm1.resx">
-      <DependentUpon>201710292330209_andresm1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710292349437_andresm2.resx">
-      <DependentUpon>201710292349437_andresm2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710300009453_andresm3a.resx">
-      <DependentUpon>201710300009453_andresm3a.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710300323351_m1andresm.resx">
+      <DependentUpon>201710300323351_m1andresm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
