@@ -28,7 +28,7 @@ namespace Software2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HistoriaClinica historiaClinica = db.HistoriaClinicas.Find(id);
+            HistoriaClinica historiaClinica = db.HistoriaClinicas.Find(id); 
             if (historiaClinica == null)
             {
                 return HttpNotFound();
