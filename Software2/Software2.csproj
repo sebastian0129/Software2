@@ -191,6 +191,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministradoresController.cs" />
     <Compile Include="Controllers\ControlController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\EspeciesController.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
+    <Compile Include="Controllers\MedicosController.cs" />
     <Compile Include="Controllers\MonitoreoController.cs" />
     <Compile Include="Controllers\MonitoreoPacientesController.cs" />
     <Compile Include="Controllers\PlanTerapeuticoController.cs" />
@@ -225,8 +227,17 @@
     <Compile Include="Migrations\201710300015228_jdasvdhav.Designer.cs">
       <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711090345142_mgajsndjasnd.cs" />
+    <Compile Include="Migrations\201711090345142_mgajsndjasnd.Designer.cs">
+      <DependentUpon>201711090345142_mgajsndjasnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711090406546_mgajsndjasndsda.cs" />
+    <Compile Include="Migrations\201711090406546_mgajsndjasndsda.Designer.cs">
+      <DependentUpon>201711090406546_mgajsndjasndsda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Control.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Especie.cs" />
@@ -237,6 +248,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\Medicamento.cs" />
+    <Compile Include="Models\Medico.cs" />
     <Compile Include="Models\Monitoreo.cs" />
     <Compile Include="Models\MonitoreoPacientes.cs" />
     <Compile Include="Models\PlanTerapeutico.cs" />
@@ -584,9 +596,6 @@
     <Content Include="Views\Mascotas\Edit.cshtml" />
     <Content Include="Views\Mascotas\Index.cshtml" />
     <Content Include="Views\Practicantes\Create.cshtml" />
-    <Content Include="Views\Practicantes\Delete.cshtml" />
-    <Content Include="Views\Practicantes\Details.cshtml" />
-    <Content Include="Views\Practicantes\Edit.cshtml" />
     <Content Include="Views\Practicantes\Index.cshtml" />
     <Content Include="Views\Propietarios\Create.cshtml" />
     <Content Include="Views\Propietarios\Delete.cshtml" />
@@ -630,6 +639,10 @@
     <Content Include="Views\PlanTerapeutico\Details.cshtml" />
     <Content Include="Views\PlanTerapeutico\Edit.cshtml" />
     <Content Include="Views\PlanTerapeutico\Index.cshtml" />
+    <Content Include="Views\Administradores\Create.cshtml" />
+    <Content Include="Views\Administradores\Index.cshtml" />
+    <Content Include="Views\Medicos\Create.cshtml" />
+    <Content Include="Views\Medicos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -649,6 +662,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710300015228_jdasvdhav.resx">
       <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711090345142_mgajsndjasnd.resx">
+      <DependentUpon>201711090345142_mgajsndjasnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711090406546_mgajsndjasndsda.resx">
+      <DependentUpon>201711090406546_mgajsndjasndsda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

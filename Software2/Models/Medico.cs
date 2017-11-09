@@ -1,29 +1,26 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace Software2.Models
 {
-    public class Practicante
+    public class Medico
     {
 
         [Key]
-        //[Required(ErrorMessage = "El ID es obligatorio")]
-        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "ID")]
-        public string practicanteID { get; set; }
+        public string medicoID { get; set; }
 
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Ingrese un nombre")]
-        [RegularExpression("^[a-zA-Z ]*$", ErrorMessage = "El nombre no pueden ser números o símbolos")]
+        [RegularExpression("^[a-zA-Z ]*$", ErrorMessage = "El nombre no pueden ser nÃºmeros o sÃ­mbolos")]
         public string nombre { get; set; }
 
         [Display(Name = "Apellido")]
         [Required(ErrorMessage = "Ingrese un Apellido")]
-        [RegularExpression("^[a-zA-Z ]*$", ErrorMessage = "El apellido no pueden ser números o símbolos")]
+        [RegularExpression("^[a-zA-Z ]*$", ErrorMessage = "El apellido no pueden ser nÃºmeros o sÃ­mbolos")]
         public string apellido { get; set; }
 
         [Display(Name = "Correo")]
@@ -31,14 +28,14 @@ namespace Software2.Models
         [DataType(DataType.EmailAddress)]
         public string correo { get; set; }
 
-        [Display(Name = "Contraseña")]
-        [Required(ErrorMessage = "Ingrese una contraseña")]
+        [Display(Name = "ContraseÃ±a")]
+        [Required(ErrorMessage = "Ingrese una contraseÃ±a")]
         [DataType(DataType.Password)]
         public string password { get; set; }
 
-        [Display(Name = "Confirmar Contraseña")]
-        [Compare("password", ErrorMessage = "Las contraseñas no coinciden")]
-        [Required(ErrorMessage = "Confirme contraseña")]
+        [Display(Name = "Confirmar ContraseÃ±a")]
+        [Compare("password", ErrorMessage = "Las contraseÃ±as no coinciden")]
+        [Required(ErrorMessage = "Confirme contraseÃ±a")]
         [DataType(DataType.Password)]
         public string repetirPassword { get; set; }
     }

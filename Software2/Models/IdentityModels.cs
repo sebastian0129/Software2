@@ -55,5 +55,9 @@ namespace Software2.Models
         public System.Data.Entity.DbSet<Software2.Models.MonitoreoPacientes> MonitoreoPacientes { get; set; }
 
         public System.Data.Entity.DbSet<Software2.Models.PlanTerapeutico> PlanTerapeuticoes { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Administrador> Administradors { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Medico> Medicos { get; set; }
     }
 }
