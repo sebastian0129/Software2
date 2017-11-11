@@ -11,6 +11,7 @@ using Software2.Models;
 namespace Software2.Controllers
 {
     public class Auto_CirugiaController : Controller
+        
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
