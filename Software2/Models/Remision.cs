@@ -27,7 +27,7 @@ namespace Software2.Models
 
         [Display(Name = "ID Practicante")]
         [ForeignKey("Practicante")]
-        public int practicanteID { get; set; }
+        public string practicanteID { get; set; }
 
         public virtual Practicante Practicante { get; set; }
 

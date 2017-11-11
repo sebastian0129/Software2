@@ -216,21 +216,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710300323351_m1andresm.cs" />
-    <Compile Include="Migrations\201710300323351_m1andresm.Designer.cs">
-      <DependentUpon>201710300323351_m1andresm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710300015228_jdasvdhav.cs" />
-    <Compile Include="Migrations\201710300015228_jdasvdhav.Designer.cs">
-      <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711090345142_mgajsndjasnd.cs" />
-    <Compile Include="Migrations\201711090345142_mgajsndjasnd.Designer.cs">
-      <DependentUpon>201711090345142_mgajsndjasnd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711090406546_mgajsndjasndsda.cs" />
-    <Compile Include="Migrations\201711090406546_mgajsndjasndsda.Designer.cs">
-      <DependentUpon>201711090406546_mgajsndjasndsda.cs</DependentUpon>
+    <Compile Include="Migrations\201711110431444_m1andres10112017.cs" />
+    <Compile Include="Migrations\201711110431444_m1andres10112017.Designer.cs">
+      <DependentUpon>201711110431444_m1andres10112017.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -689,17 +677,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710300323351_m1andresm.resx">
-      <DependentUpon>201710300323351_m1andresm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710300015228_jdasvdhav.resx">
-      <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711090345142_mgajsndjasnd.resx">
-      <DependentUpon>201711090345142_mgajsndjasnd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711090406546_mgajsndjasndsda.resx">
-      <DependentUpon>201711090406546_mgajsndjasndsda.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711110431444_m1andres10112017.resx">
+      <DependentUpon>201711110431444_m1andres10112017.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
