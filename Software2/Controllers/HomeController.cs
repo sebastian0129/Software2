@@ -16,7 +16,7 @@ namespace Software2.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            //Esto es un commit borrenlo -> el comentario
             return View();
         }
 
