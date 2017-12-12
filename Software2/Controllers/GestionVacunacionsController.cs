@@ -15,9 +15,9 @@ namespace Software2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: GestionVacunacions
-        public ActionResult Index(int ? id)
+        public ActionResult Index(string id)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }

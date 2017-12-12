@@ -593,11 +593,11 @@
     <Content Include="Views\Doctors\Details.cshtml" />
     <Content Include="Views\Doctors\Edit.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
-    <Content Include="Views\GestionVacunacions\Create.cshtml" />
-    <Content Include="Views\GestionVacunacions\Delete.cshtml" />
-    <Content Include="Views\GestionVacunacions\Details.cshtml" />
-    <Content Include="Views\GestionVacunacions\Edit.cshtml" />
-    <Content Include="Views\GestionVacunacions\Index.cshtml" />
+    <Content Include="Images\GestionVacunacions\Create.cshtml" />
+    <Content Include="Images\GestionVacunacions\Delete.cshtml" />
+    <Content Include="Images\GestionVacunacions\Details.cshtml" />
+    <Content Include="Images\GestionVacunacions\Edit.cshtml" />
+    <Content Include="Images\GestionVacunacions\Index.cshtml" />
     <Content Include="Views\Medicamentos\Create.cshtml" />
     <Content Include="Views\Medicamentos\Delete.cshtml" />
     <Content Include="Views\Medicamentos\Details.cshtml" />
