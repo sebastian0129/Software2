@@ -27,6 +27,7 @@ namespace Software2.Controllers
 
             if (mascota == null)
             {
+                //borrar comentario
                 return HttpNotFound();
             }
 
