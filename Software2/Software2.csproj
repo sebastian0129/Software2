@@ -191,6 +191,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Auto_CirugiaController.cs" />
+    <Compile Include="Controllers\Auto_ConsentimientoController.cs" />
+    <Compile Include="Controllers\Auto_EutanasiaController.cs" />
+    <Compile Include="Controllers\Auto_NecropsiaController.cs" />
     <Compile Include="Controllers\ControlController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\EspeciesController.cs" />
@@ -200,7 +204,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
-    <Compile Include="Controllers\MedicamentosController.cs" />
+    <Compile Include="Controllers\MedicosController.cs" />
+    <Compile Include="Controllers\MonitoreoController.cs" />
+    <Compile Include="Controllers\MonitoreoPacientesController.cs" />
+    <Compile Include="Controllers\PlanTerapeuticoController.cs" />
     <Compile Include="Controllers\PracticantesController.cs" />
     <Compile Include="Controllers\PropietariosController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
@@ -209,40 +216,38 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710260128556_mg2carlos.cs" />
-    <Compile Include="Migrations\201710260128556_mg2carlos.Designer.cs">
-      <DependentUpon>201710260128556_mg2carlos.cs</DependentUpon>
+    <Compile Include="Migrations\201710292330209_andresm1.cs" />
+    <Compile Include="Migrations\201710292330209_andresm1.Designer.cs">
+      <DependentUpon>201710292330209_andresm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710162228188_modifyMascotaSebas.cs" />
-    <Compile Include="Migrations\201710162228188_modifyMascotaSebas.Designer.cs">
-      <DependentUpon>201710162228188_modifyMascotaSebas.cs</DependentUpon>
+    <Compile Include="Migrations\201710292349437_andresm2.cs" />
+    <Compile Include="Migrations\201710292349437_andresm2.Designer.cs">
+      <DependentUpon>201710292349437_andresm2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710170734507_modifyPropietarioSebas.cs" />
-    <Compile Include="Migrations\201710170734507_modifyPropietarioSebas.Designer.cs">
-      <DependentUpon>201710170734507_modifyPropietarioSebas.cs</DependentUpon>
+    <Compile Include="Migrations\201710300009453_andresm3a.cs" />
+    <Compile Include="Migrations\201710300009453_andresm3a.Designer.cs">
+      <DependentUpon>201710300009453_andresm3a.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710260259105_migFormulaSebas.cs" />
-    <Compile Include="Migrations\201710260259105_migFormulaSebas.Designer.cs">
-      <DependentUpon>201710260259105_migFormulaSebas.cs</DependentUpon>
+    <Compile Include="Migrations\201710300015228_jdasvdhav.cs" />
+    <Compile Include="Migrations\201710300015228_jdasvdhav.Designer.cs">
+      <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710260325382_migFormula2Sebas.cs" />
-    <Compile Include="Migrations\201710260325382_migFormula2Sebas.Designer.cs">
-      <DependentUpon>201710260325382_migFormula2Sebas.cs</DependentUpon>
+    <Compile Include="Migrations\201711090345142_mgajsndjasnd.cs" />
+    <Compile Include="Migrations\201711090345142_mgajsndjasnd.Designer.cs">
+      <DependentUpon>201711090345142_mgajsndjasnd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710270442252_migRemisionSebas.cs" />
-    <Compile Include="Migrations\201710270442252_migRemisionSebas.Designer.cs">
-      <DependentUpon>201710270442252_migRemisionSebas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710270451273_migRemisionSebas2.cs" />
-    <Compile Include="Migrations\201710270451273_migRemisionSebas2.Designer.cs">
-      <DependentUpon>201710270451273_migRemisionSebas2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710270453292_migRemisionSebas3.cs" />
-    <Compile Include="Migrations\201710270453292_migRemisionSebas3.Designer.cs">
-      <DependentUpon>201710270453292_migRemisionSebas3.cs</DependentUpon>
+    <Compile Include="Migrations\201711090406546_mgajsndjasndsda.cs" />
+    <Compile Include="Migrations\201711090406546_mgajsndjasndsda.Designer.cs">
+      <DependentUpon>201711090406546_mgajsndjasndsda.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Autorizacion.cs" />
+    <Compile Include="Models\Auto_Cirugia.cs" />
+    <Compile Include="Models\Auto_Consentimiento.cs" />
+    <Compile Include="Models\Auto_Eutanasia.cs" />
+    <Compile Include="Models\Auto_Necropsia.cs" />
+    <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Control.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Especie.cs" />
@@ -253,6 +258,10 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\Medicamento.cs" />
+    <Compile Include="Models\Medico.cs" />
+    <Compile Include="Models\Monitoreo.cs" />
+    <Compile Include="Models\MonitoreoPacientes.cs" />
+    <Compile Include="Models\PlanTerapeutico.cs" />
     <Compile Include="Models\Practicante.cs" />
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Raza.cs" />
@@ -598,9 +607,6 @@
     <Content Include="Views\Mascotas\Edit.cshtml" />
     <Content Include="Views\Mascotas\Index.cshtml" />
     <Content Include="Views\Practicantes\Create.cshtml" />
-    <Content Include="Views\Practicantes\Delete.cshtml" />
-    <Content Include="Views\Practicantes\Details.cshtml" />
-    <Content Include="Views\Practicantes\Edit.cshtml" />
     <Content Include="Views\Practicantes\Index.cshtml" />
     <Content Include="Views\Propietarios\Create.cshtml" />
     <Content Include="Views\Propietarios\Delete.cshtml" />
@@ -642,6 +648,47 @@
     <Content Include="Views\Remisiones\Details.cshtml" />
     <Content Include="Views\Remisiones\Edit.cshtml" />
     <Content Include="Views\Remisiones\Index.cshtml" />
+    <Content Include="Views\Auto_Cirugia\Create.cshtml" />
+    <Content Include="Views\Auto_Cirugia\Delete.cshtml" />
+    <Content Include="Views\Auto_Cirugia\Details.cshtml" />
+    <Content Include="Views\Auto_Cirugia\Edit.cshtml" />
+    <Content Include="Views\Auto_Cirugia\Index.cshtml" />
+    <Content Include="Views\Auto_Necropsia\Create.cshtml" />
+    <Content Include="Views\Auto_Necropsia\Delete.cshtml" />
+    <Content Include="Views\Auto_Necropsia\Details.cshtml" />
+    <Content Include="Views\Auto_Necropsia\Edit.cshtml" />
+    <Content Include="Views\Auto_Necropsia\Index.cshtml" />
+    <Content Include="Views\Auto_Eutanasia\Create.cshtml" />
+    <Content Include="Views\Auto_Eutanasia\Delete.cshtml" />
+    <Content Include="Views\Auto_Eutanasia\Details.cshtml" />
+    <Content Include="Views\Auto_Eutanasia\Edit.cshtml" />
+    <Content Include="Views\Auto_Eutanasia\Index.cshtml" />
+    <Content Include="Views\Auto_Consentimiento\Create.cshtml" />
+    <Content Include="Views\Auto_Consentimiento\Delete.cshtml" />
+    <Content Include="Views\Auto_Consentimiento\Details.cshtml" />
+    <Content Include="Views\Auto_Consentimiento\Edit.cshtml" />
+    <Content Include="Views\Auto_Consentimiento\Index.cshtml" />
+    <Content Include="Views\HistoriaClinica\Details.cshtml" />
+    <Content Include="Views\HistoriaClinica\Index.cshtml" />
+    <Content Include="Views\Monitoreo\Create.cshtml" />
+    <Content Include="Views\Monitoreo\Delete.cshtml" />
+    <Content Include="Views\Monitoreo\Details.cshtml" />
+    <Content Include="Views\Monitoreo\Edit.cshtml" />
+    <Content Include="Views\Monitoreo\Index.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Create.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Delete.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Details.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Edit.cshtml" />
+    <Content Include="Views\MonitoreoPacientes\Index.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Create.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Delete.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Details.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Edit.cshtml" />
+    <Content Include="Views\PlanTerapeutico\Index.cshtml" />
+    <Content Include="Views\Administradores\Create.cshtml" />
+    <Content Include="Views\Administradores\Index.cshtml" />
+    <Content Include="Views\Medicos\Create.cshtml" />
+    <Content Include="Views\Medicos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -650,23 +697,23 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710260128556_mg2carlos.resx">
-      <DependentUpon>201710260128556_mg2carlos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710292330209_andresm1.resx">
+      <DependentUpon>201710292330209_andresm1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710260259105_migFormulaSebas.resx">
-      <DependentUpon>201710260259105_migFormulaSebas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710292349437_andresm2.resx">
+      <DependentUpon>201710292349437_andresm2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710260325382_migFormula2Sebas.resx">
-      <DependentUpon>201710260325382_migFormula2Sebas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710300009453_andresm3a.resx">
+      <DependentUpon>201710300009453_andresm3a.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710270442252_migRemisionSebas.resx">
-      <DependentUpon>201710270442252_migRemisionSebas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710300015228_jdasvdhav.resx">
+      <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710270451273_migRemisionSebas2.resx">
-      <DependentUpon>201710270451273_migRemisionSebas2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711090345142_mgajsndjasnd.resx">
+      <DependentUpon>201711090345142_mgajsndjasnd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710270453292_migRemisionSebas3.resx">
-      <DependentUpon>201710270453292_migRemisionSebas3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711090406546_mgajsndjasndsda.resx">
+      <DependentUpon>201711090406546_mgajsndjasndsda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

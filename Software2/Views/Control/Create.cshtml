@@ -129,6 +129,14 @@
                             @Html.ValidationMessageFor(model => model.tiempo, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.masacorporal, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.masacorporal, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.masacorporal, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
                 </div>
 
             </div>
