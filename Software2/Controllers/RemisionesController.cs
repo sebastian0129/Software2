@@ -10,7 +10,7 @@ using Software2.Models;
 
 namespace Software2.Controllers
 {
-    public class RemisionesController : Controller
+    public class RemisionesController : Controller 
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
