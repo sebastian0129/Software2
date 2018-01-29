@@ -1023,7 +1023,7 @@ h2.title {
         .open > .navbar .navbar-nav > li > a.btn.btn-default.dropdown-toggle,
         .open > .navbar .navbar-nav > li > a.btn.btn-default.dropdown-toggle:focus,
         .open > .navbar .navbar-nav > li > a.btn.btn-default.dropdown-toggle:hover {
-            background-color: #999999;
+            background-color: #4caf50;
             color: #FFFFFF;
         }
 
@@ -3016,9 +3016,9 @@ label {
     }
 
         .form-group label.control-label {
-            font-size: 11px;
+            font-size: 16px;
             line-height: 1.07143;
-            color: #AAAAAA;
+            color: #424242;
             font-weight: 400;
             margin: 16px 0 0 0;
         }
