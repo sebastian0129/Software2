@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Software2.Models;
 
-namespace Software2.Controllers
+namespace Software2.Controllers 
 {
     public class ControlController : Controller
     {
