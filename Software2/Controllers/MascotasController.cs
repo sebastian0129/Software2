@@ -37,10 +37,10 @@ namespace Software2.Controllers
         }
 
         // GET: Mascotas/Create
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
-            ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id");
-            ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre");
+          
+            //ViewBag.propietario = cedula;
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre");
             return View();
         }
@@ -54,7 +54,8 @@ namespace Software2.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                mascota.propietario = Convert.ToInt64(mascota.id);
+                mascota.id = Metodos.generarCodigo();
                 if (mascota.fecha_nacimiento > DateTime.Now) //Esto no funciona pero hay que arreglarlo
                 {
                     ModelState.AddModelError("Lafecha de nacimiento no es valida", "");
@@ -71,7 +72,7 @@ namespace Software2.Controllers
             }
 
             ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
-            ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
+           // ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
             return View(mascota);
         }
@@ -112,7 +113,7 @@ namespace Software2.Controllers
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
             return View(mascota);
         }
-
+       
         // GET: Mascotas/Delete/5
         public ActionResult Delete(string id)
         {

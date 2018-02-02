@@ -216,6 +216,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Metodos.cs" />
     <Compile Include="Migrations\201711192250099_m1andres19112017.cs" />
     <Compile Include="Migrations\201711192250099_m1andres19112017.Designer.cs">
       <DependentUpon>201711192250099_m1andres19112017.cs</DependentUpon>
@@ -419,6 +420,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\logo-universidad-de-caldas.jpg" />
     <Content Include="Images\sidebar-4.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -31,7 +31,7 @@ namespace Software2.Models //Carlos Mario Jaramillo
         [DataType(DataType.EmailAddress)]
         public string correo { get; set; }
 
-        public List<Mascota> mascotas { get; set; }
+        public virtual List<Mascota> mascotas { get; set; }
 
     }
 }
