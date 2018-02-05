@@ -17,6 +17,7 @@ namespace Software2.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -149,11 +150,30 @@ namespace Software2.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
+           
         {
+           
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+
+                //var resultado = UserManager.Create(user, model.Password);
+                var result1 = UserManager.AddToRole(user.Id, "Practicante");
+
+                Practicante practicanteNew = new Practicante();
+                practicanteNew.practicanteID = user.Id;
+                practicanteNew.nombre = model.nombre;
+                practicanteNew.apellido = model.apellido;
+                practicanteNew.correo = model.Email;
+                practicanteNew.password = model.Password;
+                practicanteNew.repetirPassword = model.ConfirmPassword;
+
+                db.Practicantes.Add(practicanteNew);
+                db.SaveChanges();
+
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

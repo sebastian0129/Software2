@@ -9,6 +9,9 @@ namespace Software2.Models
 {
     public class Practicante
     {
+        private string email;
+
+        
 
         [Key]
         //[Required(ErrorMessage = "El ID es obligatorio")]

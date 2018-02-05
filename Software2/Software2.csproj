@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -217,9 +218,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Metodos.cs" />
-    <Compile Include="Migrations\201711192250099_m1andres19112017.cs" />
-    <Compile Include="Migrations\201711192250099_m1andres19112017.Designer.cs">
-      <DependentUpon>201711192250099_m1andres19112017.cs</DependentUpon>
+    <Compile Include="Migrations\201802050102554_migracionMario.cs" />
+    <Compile Include="Migrations\201802050102554_migracionMario.Designer.cs">
+      <DependentUpon>201802050102554_migracionMario.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -420,6 +421,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\huellas.png" />
     <Content Include="Images\logo-universidad-de-caldas.jpg" />
     <Content Include="Images\sidebar-4.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -679,8 +681,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711192250099_m1andres19112017.resx">
-      <DependentUpon>201711192250099_m1andres19112017.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802050102554_migracionMario.resx">
+      <DependentUpon>201802050102554_migracionMario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
