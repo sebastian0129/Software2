@@ -24,14 +24,9 @@ namespace Software2.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Ingrese una fecha")]
         public DateTime fecha { get; set; }
+         
+        public virtual ICollection<MedicamentosFormula> listaMedicamentos { get; set; }
 
-        public virtual ICollection<Medicamento> medicamentos { get; set; }
-
-        [Display(Name = "Cédula Practicante")]
-        [ForeignKey("Practicante")]
-        public string practicanteID { get; set; }
-
-        public virtual Practicante Practicante { get; set; }
 
     }
 }
