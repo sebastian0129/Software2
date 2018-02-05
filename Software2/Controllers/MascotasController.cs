@@ -17,7 +17,7 @@ namespace Software2.Controllers
         // GET: Mascotas
         public ActionResult Index()
         {
-            var mascotas = db.Mascotas.Include(m => m.historia).Include(m => m.propietarioFK).Include(m => m.razaFK);
+            var mascotas = db.Mascotas.Include(m => m.historia).Include(m => m.propietarioFK).Include(m => m.especieFK);
             return View(mascotas.ToList());
         }
 
@@ -39,8 +39,9 @@ namespace Software2.Controllers
         // GET: Mascotas/Create
         public ActionResult Create(string id)
         {
-          
-            //ViewBag.propietario = cedula;
+
+            ViewBag.propietario = id;
+            ViewBag.especie = new SelectList(db.Especies, "id", "nombre");
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre");
             return View();
         }
@@ -73,7 +74,8 @@ namespace Software2.Controllers
 
             ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
            // ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
-            ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
+            ViewBag.raza = new SelectList(db.Razas.OrderBy(t => t.nombre), "id", "nombre");
+            ViewBag.especie = new SelectList(db.Especies.OrderBy(t=> t.nombre), "id", "nombre");
             return View(mascota);
         }
 
@@ -91,7 +93,7 @@ namespace Software2.Controllers
             }
             ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
-            ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
+            ViewBag.especie = new SelectList(db.Razas, "id", "nombre", mascota.especie);
             return View(mascota);
         }
 
@@ -110,7 +112,7 @@ namespace Software2.Controllers
             }
             ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
-            ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
+            ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.especie);
             return View(mascota);
         }
        

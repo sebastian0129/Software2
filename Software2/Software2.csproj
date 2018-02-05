@@ -217,9 +217,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Metodos.cs" />
-    <Compile Include="Migrations\201711192250099_m1andres19112017.cs" />
-    <Compile Include="Migrations\201711192250099_m1andres19112017.Designer.cs">
-      <DependentUpon>201711192250099_m1andres19112017.cs</DependentUpon>
+    <Compile Include="Migrations\201802042005438_InitialCreate.cs" />
+    <Compile Include="Migrations\201802042005438_InitialCreate.Designer.cs">
+      <DependentUpon>201802042005438_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042049241_migration2Andresss.cs" />
+    <Compile Include="Migrations\201802042049241_migration2Andresss.Designer.cs">
+      <DependentUpon>201802042049241_migration2Andresss.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -420,7 +424,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\LogoMascota.png" />
     <Content Include="Images\logo-universidad-de-caldas.jpg" />
+    <Content Include="Images\logo-universidad-de-caldas.png" />
+    <Content Include="Images\propietario.png" />
     <Content Include="Images\sidebar-4.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -679,8 +686,11 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711192250099_m1andres19112017.resx">
-      <DependentUpon>201711192250099_m1andres19112017.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802042005438_InitialCreate.resx">
+      <DependentUpon>201802042005438_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042049241_migration2Andresss.resx">
+      <DependentUpon>201802042049241_migration2Andresss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

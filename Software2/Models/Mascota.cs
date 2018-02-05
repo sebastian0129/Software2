@@ -28,9 +28,13 @@ namespace Software2.Models
         [Display(Name = "Color")]
         public colores color { get; set; }
 
-        [Display(Name = "Raza")]
-        [ForeignKey("razaFK")]
-        public int raza { get; set; }
+        //[Display(Name = "Raza")]
+        //[ForeignKey("razaFK")]
+        //public int raza { get; set; }
+
+        [Display(Name = "Especie")]
+        [ForeignKey("especieFK")]
+        public int especie { get; set; }
 
         [Display(Name = "Propietario")]
         [ForeignKey("propietarioFK")]
@@ -38,7 +42,10 @@ namespace Software2.Models
 
         public virtual Propietario propietarioFK { get; set; }
 
-        public virtual Raza razaFK { get; set; }
+    
+
+        //public virtual Raza razaFK { get; set; }
+        public virtual Especie especieFK { get; set; }
 
         public enum sexos { Hembra,Macho};
 

@@ -15,7 +15,7 @@ namespace Software2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: GestionVacunacions
-        public ActionResult Index(int ? id)
+        public ActionResult Index(string id)
         {
             if (id == null)
             {
@@ -35,7 +35,7 @@ namespace Software2.Controllers
         }
 
         // GET: GestionVacunacions/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -50,7 +50,7 @@ namespace Software2.Controllers
         }
 
         // GET: GestionVacunacions/Create
-        public ActionResult Create(int? id)
+        public ActionResult Create(string id)
         {
             if (id == null)
             {
@@ -90,7 +90,7 @@ namespace Software2.Controllers
         }
 
         // GET: GestionVacunacions/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
