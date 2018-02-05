@@ -39,7 +39,7 @@ namespace Software2.Models
         public double tiempo { get; set; }
 
         [Display(Name = "Masa corporal")]
-        public double masacorporal { get; set; }
+        public double masacorporal;
         #endregion  examen_fisico_general
 
         #region examen_fisico_especial

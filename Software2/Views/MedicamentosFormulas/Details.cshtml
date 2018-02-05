@@ -1,0 +1,50 @@
+﻿@model Software2.Models.MedicamentosFormula
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MedicamentosFormula</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Formula.mascotaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formula.mascotaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medicamento.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medicamento.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.frecuenciaHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.frecuenciaHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dosis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dosis)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
