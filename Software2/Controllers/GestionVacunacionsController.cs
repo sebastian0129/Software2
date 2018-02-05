@@ -17,7 +17,7 @@ namespace Software2.Controllers
         // GET: GestionVacunacions
         public ActionResult Index(string id)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
