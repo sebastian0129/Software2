@@ -15,23 +15,20 @@ namespace Software2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Formulas
-        public ActionResult Index( int ? id)
+        public ActionResult Index(string id)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             Mascota mascota = db.Mascotas.Find(id);
-            ViewBag.mascota = mascota;
-
+            
             if (mascota == null)
             {
                 return HttpNotFound();
             }
-
-
-            return View(mascota.formulas.ToList());
+            ViewBag.mascota = mascota;
+            return View(mascota.formulas);
         }
 
         // GET: Formulas/Details/5
@@ -50,37 +47,40 @@ namespace Software2.Controllers
         }
 
         // GET: Formulas/Create
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
-            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre");
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre");
+            if (string.IsNullOrEmpty(id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Mascota mascota = db.Mascotas.Find(id);
+
+            if (mascota == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.mascota = mascota;
 
             Formula formula = new Formula();
-            formula.fecha = DateTime.Today;
+            formula.fecha = DateTime.Now.Date;
+
             return View(formula);
-
-
         }
-
 
         // POST: Formulas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "formulaID,mascotaID,fecha,practicanteID")] Formula formula)
+        public ActionResult Create([Bind(Include = "formulaID,mascotaID,fecha")] Formula formula)
         {
             if (ModelState.IsValid)
             {
                 db.Formulae.Add(formula);
                 db.SaveChanges();
-                
-
-                return RedirectToAction("Index");
+                return RedirectToAction("Create","MedicamentosFormulas",new { id = formula.formulaID });
             }
 
-            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", formula.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
             return View(formula);
         }
 
@@ -97,7 +97,6 @@ namespace Software2.Controllers
                 return HttpNotFound();
             }
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", formula.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
             return View(formula);
         }
 
@@ -106,7 +105,7 @@ namespace Software2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "formulaID,mascotaID,fecha,practicanteID")] Formula formula)
+        public ActionResult Edit([Bind(Include = "formulaID,mascotaID,fecha")] Formula formula)
         {
             if (ModelState.IsValid)
             {
@@ -115,7 +114,6 @@ namespace Software2.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", formula.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
             return View(formula);
         }
 

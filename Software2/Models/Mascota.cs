@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,7 +17,6 @@ namespace Software2.Models
         public string nombre { get; set; }
 
         [Display(Name = "Fecha de nacimiento")]
-       
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "El campo Fecha de nacimiento es obligatorio")]
         public DateTime fecha_nacimiento { get; set; }

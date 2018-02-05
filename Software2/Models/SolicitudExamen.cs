@@ -42,7 +42,7 @@ namespace Software2.Models
 
         [DisplayName("Estudiante a cargo"), Required(ErrorMessage = "Debe ingresar un examen para solicitar")]
         [ForeignKey("practicanteFK")]
-        public string idPracticante { set; get; }
+        public int idPracticante { set; get; }
         public Practicante practicanteFK { set; get; }
     }
 }

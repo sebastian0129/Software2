@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Software2.Models;
 
-namespace Software2.Controllers
+namespace Software2.Controllers 
 {
     public class ControlController : Controller
     {
@@ -48,7 +48,7 @@ namespace Software2.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Control control)
+        public ActionResult Create([Bind(Include = "id,fecha,anamnesis,temperatura,fc,mucosas,fr,tiempo,piel,muscolo,ojos,cardiovascular,respiratorio,digestivo,genito,reproducor,nervioso,linfatico,des_piel,des_muscolo,des_ojos,des_cardiovascular,des_respiratorio,des_digestivo,des_genito,des_reproducor,des_nervioso,des_linfatico,anormalidades,problemas,ayudas,fianl")] Control control)
         {
             if (ModelState.IsValid)
             {

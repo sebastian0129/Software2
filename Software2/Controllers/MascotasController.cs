@@ -17,12 +17,12 @@ namespace Software2.Controllers
         // GET: Mascotas
         public ActionResult Index()
         {
-            var mascotas = db.Mascotas.Include(m => m.historia).Include(m => m.propietarioFK).Include(m => m.razaFK);
+            var mascotas = db.Mascotas.Include(m => m.propietarioFK).Include(m => m.razaFK);
             return View(mascotas.ToList());
         }
 
         // GET: Mascotas/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -39,7 +39,6 @@ namespace Software2.Controllers
         // GET: Mascotas/Create
         public ActionResult Create()
         {
-            ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id");
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre");
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre");
             return View();
@@ -50,34 +49,22 @@ namespace Software2.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Mascota mascota)
+        public ActionResult Create([Bind(Include = "id,nombre,fecha_nacimiento,sexo,color,raza,propietario")] Mascota mascota)
         {
             if (ModelState.IsValid)
             {
-
-                if (mascota.fecha_nacimiento > DateTime.Now) //Esto no funciona pero hay que arreglarlo
-                {
-                    ModelState.AddModelError("Lafecha de nacimiento no es valida", "");
-                    return RedirectToAction("Index");
-                }
-                var historia = new HistoriaClinica();
-                historia.id = mascota.id;
-                historia.fecha_creacion = DateTime.Now.Date;
-                db.HistoriaClinicas.Add(historia);
-
                 db.Mascotas.Add(mascota);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
             return View(mascota);
         }
 
         // GET: Mascotas/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -88,7 +75,6 @@ namespace Software2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
             return View(mascota);
@@ -107,14 +93,13 @@ namespace Software2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
             ViewBag.propietario = new SelectList(db.Propietarios, "cedula", "nombre", mascota.propietario);
             ViewBag.raza = new SelectList(db.Razas, "id", "nombre", mascota.raza);
             return View(mascota);
         }
 
         // GET: Mascotas/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -131,7 +116,7 @@ namespace Software2.Controllers
         // POST: Mascotas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Mascota mascota = db.Mascotas.Find(id);
             db.Mascotas.Remove(mascota);
