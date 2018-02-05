@@ -10,7 +10,7 @@ namespace Software2.Models
     public class Control
     {
         [Key]
-        public long id { get; set; }
+        public string id { get; set; }
 
         public DateTime fecha { get; set; }
 

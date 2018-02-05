@@ -5,7 +5,7 @@
 }
 
 
-    <h2 class="text-center">L</h2>
+    <h2 class="text-center">Lista de propietarios</h2>
 
 <a class="btn btn-success btn-sm" href='@Url.Action("Create", "Propietarios" )'><span class="glyphicon glyphicon-plus" ></span>
    
@@ -17,6 +17,9 @@ Nuevo propietario
 <table class="table table-striped table-bordered table-responsive" id="tablaPropietarios">
     <thead>
         <tr>
+            <th>
+                Cédula
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.nombre)
             </th>
@@ -39,6 +42,9 @@ Nuevo propietario
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cedula)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.nombre)
                 </td>

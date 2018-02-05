@@ -35,7 +35,7 @@ namespace Software2.Controllers
         }
 
         // GET: GestionVacunacions/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -76,7 +76,7 @@ namespace Software2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "vacunaID,nombre,fechaVacunacion,dosis,lote,mascotaID")] GestionVacunacion gestionVacunacion)
+        public ActionResult Create( GestionVacunacion gestionVacunacion)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Software2.Controllers
         }
 
         // GET: GestionVacunacions/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int?  id)
         {
             if (id == null)
             {

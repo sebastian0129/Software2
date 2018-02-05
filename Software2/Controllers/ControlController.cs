@@ -21,7 +21,7 @@ namespace Software2.Controllers
         }
 
         // GET: Control/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -36,10 +36,14 @@ namespace Software2.Controllers
         }
 
         // GET: Control/Create
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
+            ViewBag.mascota = db.Mascotas.Find(id);
 
-
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             return View();
         }
 
@@ -52,17 +56,19 @@ namespace Software2.Controllers
         {
             if (ModelState.IsValid)
             {
+                control.historia = control.id;
+                control.id = Metodos.generarCodigo();
                 control.fecha = DateTime.Now;
                 db.Controls.Add(control);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "HistoriaClinica",new { id = control.historia });
             }
-
+            ViewBag.mascota = db.Mascotas.Find(control.id);
             return View(control);
         }
 
         // GET: Control/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -93,7 +99,7 @@ namespace Software2.Controllers
         }
 
         // GET: Control/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -110,7 +116,7 @@ namespace Software2.Controllers
         // POST: Control/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(string id)
         {
             Control control = db.Controls.Find(id);
             db.Controls.Remove(control);

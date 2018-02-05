@@ -50,7 +50,7 @@ namespace Software2.Controllers
         }
 
         // GET: Remisiones/Create
-        public ActionResult Create(int? id)
+        public ActionResult Create(string id)
         {
             if (id == null)
             {
@@ -91,7 +91,7 @@ namespace Software2.Controllers
         }
 
         // GET: Remisiones/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {

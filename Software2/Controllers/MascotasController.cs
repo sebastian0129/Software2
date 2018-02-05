@@ -69,7 +69,7 @@ namespace Software2.Controllers
 
                 db.Mascotas.Add(mascota);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details","Propietarios",new { id =mascota.propietario});
             }
 
             ViewBag.id = new SelectList(db.HistoriaClinicas, "id", "id", mascota.id);
