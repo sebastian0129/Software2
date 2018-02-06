@@ -29,7 +29,7 @@ namespace Software2.Models
 
         [Display(Name = "Cédula Practicante")]
         [ForeignKey("Practicante")]
-        public string practicanteID { get; set; }
+        public int practicanteID { get; set; }
 
         public virtual Practicante Practicante { get; set; }
 

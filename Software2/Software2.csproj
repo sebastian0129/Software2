@@ -25,7 +25,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -217,10 +216,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Metodos.cs" />
-    <Compile Include="Migrations\201802050102554_migracionMario.cs" />
-    <Compile Include="Migrations\201802050102554_migracionMario.Designer.cs">
-      <DependentUpon>201802050102554_migracionMario.cs</DependentUpon>
+    <Compile Include="Migrations\201710300323351_m1andresm.cs" />
+    <Compile Include="Migrations\201710300323351_m1andresm.Designer.cs">
+      <DependentUpon>201710300323351_m1andresm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710300015228_jdasvdhav.cs" />
+    <Compile Include="Migrations\201710300015228_jdasvdhav.Designer.cs">
+      <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711090345142_mgajsndjasnd.cs" />
+    <Compile Include="Migrations\201711090345142_mgajsndjasnd.Designer.cs">
+      <DependentUpon>201711090345142_mgajsndjasnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711090406546_mgajsndjasndsda.cs" />
+    <Compile Include="Migrations\201711090406546_mgajsndjasndsda.Designer.cs">
+      <DependentUpon>201711090406546_mgajsndjasndsda.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -421,8 +431,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\huellas.png" />
-    <Content Include="Images\logo-universidad-de-caldas.jpg" />
     <Content Include="Images\sidebar-4.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -681,8 +689,17 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802050102554_migracionMario.resx">
-      <DependentUpon>201802050102554_migracionMario.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710300323351_m1andresm.resx">
+      <DependentUpon>201710300323351_m1andresm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710300015228_jdasvdhav.resx">
+      <DependentUpon>201710300015228_jdasvdhav.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711090345142_mgajsndjasnd.resx">
+      <DependentUpon>201711090345142_mgajsndjasnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711090406546_mgajsndjasndsda.resx">
+      <DependentUpon>201711090406546_mgajsndjasndsda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
