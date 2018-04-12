@@ -8,8 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using Software2.Models;
 
-namespace Software2.Controllers 
+namespace Software2.Controllers
 {
+    [Authorize]
     public class ControlController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -21,7 +22,7 @@ namespace Software2.Controllers
         }
 
         // GET: Control/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -36,10 +37,14 @@ namespace Software2.Controllers
         }
 
         // GET: Control/Create
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
+            ViewBag.mascota = db.Mascotas.Find(id);
 
-
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             return View();
         }
 
@@ -48,21 +53,23 @@ namespace Software2.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,fecha,anamnesis,temperatura,fc,mucosas,fr,tiempo,piel,muscolo,ojos,cardiovascular,respiratorio,digestivo,genito,reproducor,nervioso,linfatico,des_piel,des_muscolo,des_ojos,des_cardiovascular,des_respiratorio,des_digestivo,des_genito,des_reproducor,des_nervioso,des_linfatico,anormalidades,problemas,ayudas,fianl")] Control control)
+        public ActionResult Create(Control control)
         {
             if (ModelState.IsValid)
             {
+                control.historia = control.id;
+                control.id = Metodos.generarCodigo();
                 control.fecha = DateTime.Now;
                 db.Controls.Add(control);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "HistoriaClinica",new { id = control.historia });
             }
-
+            ViewBag.mascota = db.Mascotas.Find(control.id);
             return View(control);
         }
 
         // GET: Control/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -93,7 +100,7 @@ namespace Software2.Controllers
         }
 
         // GET: Control/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -110,7 +117,7 @@ namespace Software2.Controllers
         // POST: Control/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(string id)
         {
             Control control = db.Controls.Find(id);
             db.Controls.Remove(control);

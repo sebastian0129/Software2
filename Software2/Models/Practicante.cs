@@ -9,15 +9,12 @@ namespace Software2.Models
 {
     public class Practicante
     {
-        private string email;
-
-        
 
         [Key]
-        [Required(ErrorMessage = "El ID es obligatorio")]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //[Required(ErrorMessage = "El ID es obligatorio")]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "ID")]
-        public int practicanteID { get; set; }
+        public string practicanteID { get; set; }
 
         [Display(Name = "Nombre")]
         [Required(ErrorMessage = "Ingrese un nombre")]

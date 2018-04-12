@@ -10,7 +10,7 @@ namespace Software2.Models
     public class Control
     {
         [Key]
-        public long id { get; set; }
+        public string id { get; set; }
 
         public DateTime fecha { get; set; }
 
@@ -39,7 +39,7 @@ namespace Software2.Models
         public double tiempo { get; set; }
 
         [Display(Name = "Masa corporal")]
-        public double masacorporal;
+        public double masacorporal { get; set; }
         #endregion  examen_fisico_general
 
         #region examen_fisico_especial

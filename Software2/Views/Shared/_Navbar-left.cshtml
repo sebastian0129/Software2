@@ -5,13 +5,28 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text">
-            @*@User.Identity.Name;*@
-            Menú
-        </a>
+        <center>
+            <img src="~/Images/logo-universidad-de-caldas.png" height="160px" width="160px" />
+        </center>
+        @using Microsoft.AspNet.Identity
+        
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {@Html.AntiForgeryToken()
+        <div class="dropup">
+            <a class="btn  dropdown-toggle btn-xs"  data-toggle="dropdown" >
+                @User.Identity.GetUserName() 
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Editar información</a></li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+              
+            </ul>
+        </div>
+        }
     </div>
     <div class="sidebar-wrapper">
-        <ul class="nav">
+        <ul class="nav"  style="height: 100%">
             <li>
                 <a href="@Url.Action("Index","Propietarios")"   >
                     
@@ -19,48 +34,83 @@
                     <p>Propietarios</p>
                 </a>
             </li>
-            <li class="active">
-                <a href="./user.html">
-                    <i class="material-icons">person</i>
-                    <p>User Profile</p>
-                </a>
-            </li>
             <li>
-                <a href="./table.html">
-                    <i class="material-icons">content_paste</i>
-                    <p>Table List</p>
-                </a>
-            </li>
-            <li>
-                <a href="./typography.html">
-                    <i class="material-icons">library_books</i>
-                    <p>Typography</p>
-                </a>
-            </li>
-            <li>
-                <a href="./icons.html">
+                <a href="@Url.Action("Index","Practicantes")">
                     <i class="material-icons">bubble_chart</i>
-                    <p>Icons</p>
+                    <p>Practicantes</p>
                 </a>
             </li>
             <li>
-                <a href="./maps.html">
-                    <i class="material-icons">location_on</i>
-                    <p>Maps</p>
+                <a href="@Url.Action("Index","Medicos")">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                    <p>Médicos</p>
                 </a>
             </li>
             <li>
-                <a href="./notifications.html">
-                    <i class="material-icons text-gray">notifications</i>
-                    <p>Notifications</p>
+                <a href="@Url.Action("Index","HistoriaClinica")">
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                    <p>Historias clinicas</p>
                 </a>
             </li>
-            <li class="active-pro">
-                <a href="upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
+            <li>
+               
+                  
+                      
+
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                <i class="glyphicon glyphicon-folder-close">
+                                </i> <p>Autorizaciones</p>
+                            </a>
+                        
+
+                  
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">
+                        
+                                <ul class="nav">
+                                    <li>
+                                       
+                                          <a href="@Url.Action("Create","Auto_cirugia")">Cirugía</a>
+                                       
+                                    </li>
+                                    <li>
+                                       
+                                           <a href="@Url.Action("Create","Auto_Consentimiento")">Consentimiento firmado</a>
+                                       
+                                    </li>
+                                    <li>
+                                       
+                                            <a href="@Url.Action("Create","Auto_Eutanasia")">Eutanacia</a>
+                                       
+                                    </li>
+                                    <li>
+                                      
+                                           <a href="@Url.Action("Create","Auto_Necropsia")">Necropsia</a>
+
+                                     
+                                    </li>
+                                </ul>
+                          
+                        </div>
+                    </div>
+               
+            </li>
+            <li>
+                <a href="@Url.Action("Index","Razas")">
+                    <i class="material-icons">content_paste</i>
+                    <p>Razas</p>
                 </a>
             </li>
+            <li>
+                <a href="@Url.Action("Index","Especies")">
+                    <i class="material-icons">library_books</i>
+                    <p>Especies</p>
+                </a>
+            </li>
+           
+          
+            
+          
         </ul>
     </div>
 </div>

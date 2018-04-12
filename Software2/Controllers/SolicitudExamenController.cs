@@ -10,6 +10,7 @@ using Software2.Models;
 
 namespace Software2.Controllers
 {
+    [Authorize]
     public class SolicitudExamenController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

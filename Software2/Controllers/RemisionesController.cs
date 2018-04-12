@@ -10,15 +10,29 @@ using Software2.Models;
 
 namespace Software2.Controllers
 {
+    [Authorize]
     public class RemisionesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Remisiones
-        public ActionResult Index()
+        public ActionResult Index(int ? id)
         {
-            var remisions = db.Remisions.Include(r => r.Mascota);
-            return View(remisions.ToList());
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Mascota mascota = db.Mascotas.Find(id);
+            ViewBag.mascota = mascota;
+
+            if (mascota == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            return View(mascota.remisiones.ToList());
         }
 
         // GET: Remisiones/Details/5
@@ -37,10 +51,25 @@ namespace Software2.Controllers
         }
 
         // GET: Remisiones/Create
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
-            ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre");
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Mascota mascota = db.Mascotas.Find(id);
+
+            if (mascota == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.mascota = mascota;
+
+
+            Remision remision = new Remision();
+            remision.fechaRemision = DateTime.Today;
+            return View(remision);
         }
 
         // POST: Remisiones/Create
@@ -48,22 +77,22 @@ namespace Software2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "remisionID,mascotaID,region,vista,diagnostico,ecografia,evaluacion,resultado,observacion")] Remision remision)
+        public ActionResult Create([Bind(Include = "remisionID,mascotaID,practicanteID,region,vista,diagnostico,ecografia,evaluacion,resultado,observacion")] Remision remision)
         {
             if (ModelState.IsValid)
             {
-                remision.fechaRemision = DateTime.Now.Date;
                 db.Remisions.Add(remision);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", remision.mascotaID);
+            ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
             return View(remision);
         }
 
         // GET: Remisiones/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -75,6 +104,7 @@ namespace Software2.Controllers
                 return HttpNotFound();
             }
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", remision.mascotaID);
+            ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
             return View(remision);
         }
 
@@ -83,7 +113,7 @@ namespace Software2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "remisionID,fechaRemision,mascotaID,region,vista,diagnostico,ecografia,evaluacion,resultado,observacion")] Remision remision)
+        public ActionResult Edit([Bind(Include = "remisionID,mascotaID,practicanteID,region,vista,diagnostico,ecografia,evaluacion,resultado,observacion")] Remision remision)
         {
             if (ModelState.IsValid)
             {
@@ -92,6 +122,7 @@ namespace Software2.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", remision.mascotaID);
+            ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
             return View(remision);
         }
 

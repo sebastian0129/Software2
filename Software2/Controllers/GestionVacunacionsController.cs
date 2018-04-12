@@ -10,6 +10,7 @@ using Software2.Models;
 
 namespace Software2.Controllers
 {
+    [Authorize]
     public class GestionVacunacionsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,7 +18,7 @@ namespace Software2.Controllers
         // GET: GestionVacunacions
         public ActionResult Index(string id)
         {
-            if (string.IsNullOrEmpty(id))
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -50,7 +51,7 @@ namespace Software2.Controllers
         }
 
         // GET: GestionVacunacions/Create
-        public ActionResult Create(int? id)
+        public ActionResult Create(string id)
         {
             if (id == null)
             {
@@ -76,7 +77,7 @@ namespace Software2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "vacunaID,nombre,fechaVacunacion,dosis,lote,mascotaID")] GestionVacunacion gestionVacunacion)
+        public ActionResult Create( GestionVacunacion gestionVacunacion)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +91,7 @@ namespace Software2.Controllers
         }
 
         // GET: GestionVacunacions/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int?  id)
         {
             if (id == null)
             {

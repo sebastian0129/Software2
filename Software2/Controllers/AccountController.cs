@@ -24,7 +24,7 @@ namespace Software2.Controllers
             //holi papus
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -36,9 +36,9 @@ namespace Software2.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -122,7 +122,7 @@ namespace Software2.Controllers
             // Si un usuario introduce códigos incorrectos durante un intervalo especificado de tiempo, la cuenta del usuario 
             // se bloqueará durante un período de tiempo especificado. 
             // Puede configurar el bloqueo de la cuenta en IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -150,9 +150,9 @@ namespace Software2.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
-           
+
         {
-           
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -160,24 +160,26 @@ namespace Software2.Controllers
 
 
                 //var resultado = UserManager.Create(user, model.Password);
-                var result1 = UserManager.AddToRole(user.Id, "Practicante");
-
-                Practicante practicanteNew = new Practicante();
-                practicanteNew.practicanteID = user.Id;
-                practicanteNew.nombre = model.nombre;
-                practicanteNew.apellido = model.apellido;
-                practicanteNew.correo = model.Email;
-                practicanteNew.password = model.Password;
-                practicanteNew.repetirPassword = model.ConfirmPassword;
-
-                db.Practicantes.Add(practicanteNew);
-                db.SaveChanges();
+               
 
 
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    var result1 = await UserManager.AddToRoleAsync(user.Id, "Practicante");
+
+                    Practicante practicanteNew = new Practicante();
+                    practicanteNew.practicanteID = user.Id;
+                    practicanteNew.nombre = model.nombre;
+                    practicanteNew.apellido = model.apellido;
+                    practicanteNew.correo = model.Email;
+                    practicanteNew.password = null;
+                    practicanteNew.repetirPassword = null;
+
+                    db.Practicantes.Add(practicanteNew);
+                    db.SaveChanges();
+
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

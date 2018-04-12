@@ -14,13 +14,19 @@ namespace Software2.Models
         [Display(Name = "Nombre")]
         public string nombre { get; set; }
 
-        [Display(Name = "Expresion")]
-        public int expresion { get; set; }
+        [Display(Name = "Dosis")]
+        public int dosis { get; set; }
 
-        [Display(Name = "Lote")]
+        [Display(Name = "Lotes")]
         public int lote { get; set; }
 
         [Display(Name = "Vía de Suministro")]
         public ViaSuministro viaSuministro { get; set; }
+
+        [Display(Name = "Frecuencia")]
+        public string frecuencia { get; set; }
+                       
+        [Display(Name = "Cantidad")]
+        public int cantidad { get; set; }
     }
 }
