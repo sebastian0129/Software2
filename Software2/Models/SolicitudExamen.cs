@@ -40,9 +40,9 @@ namespace Software2.Models
 
         public string diagnosticoPresuntivo { set; get; }
 
-        [DisplayName("Estudiante a cargo"), Required(ErrorMessage = "Debe ingresar un examen para solicitar")]
-        [ForeignKey("practicanteFK")]
-        public string idPracticante { set; get; }
-        public Practicante practicanteFK { set; get; }
+        [DisplayName("Veterinario a cargo"), Required(ErrorMessage = "Debe ingresar un examen para solicitar")]
+        [ForeignKey("veterinario")]
+        public string veterinarioFK { set; get; }
+        public Veterinario veterinario { set; get; }
     }
 }

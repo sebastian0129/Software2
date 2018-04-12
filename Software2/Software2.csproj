@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -196,7 +197,6 @@
     <Compile Include="Controllers\Auto_EutanasiaController.cs" />
     <Compile Include="Controllers\Auto_NecropsiaController.cs" />
     <Compile Include="Controllers\ControlController.cs" />
-    <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\EspeciesController.cs" />
     <Compile Include="Controllers\FormulasController.cs" />
     <Compile Include="Controllers\GestionVacunacionsController.cs" />
@@ -221,6 +221,30 @@
     <Compile Include="Migrations\201802051409047_mdhtdh.Designer.cs">
       <DependentUpon>201802051409047_mdhtdh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804120159282_mg1ds.cs" />
+    <Compile Include="Migrations\201804120159282_mg1ds.Designer.cs">
+      <DependentUpon>201804120159282_mg1ds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804120337406_mdbsj.cs" />
+    <Compile Include="Migrations\201804120337406_mdbsj.Designer.cs">
+      <DependentUpon>201804120337406_mdbsj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804120340327_mgVeterinario.cs" />
+    <Compile Include="Migrations\201804120340327_mgVeterinario.Designer.cs">
+      <DependentUpon>201804120340327_mgVeterinario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804120349023_mg14r3dd.cs" />
+    <Compile Include="Migrations\201804120349023_mg14r3dd.Designer.cs">
+      <DependentUpon>201804120349023_mg14r3dd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804120352344_scacuja.cs" />
+    <Compile Include="Migrations\201804120352344_scacuja.Designer.cs">
+      <DependentUpon>201804120352344_scacuja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804120411431_mcashcvjf.cs" />
+    <Compile Include="Migrations\201804120411431_mcashcvjf.Designer.cs">
+      <DependentUpon>201804120411431_mcashcvjf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Autorizacion.cs" />
@@ -230,7 +254,6 @@
     <Compile Include="Models\Auto_Necropsia.cs" />
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Control.cs" />
-    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Especie.cs" />
     <Compile Include="Models\Formula.cs" />
     <Compile Include="Models\GestionVacunacion.cs" />
@@ -239,14 +262,13 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\Medicamento.cs" />
-    <Compile Include="Models\Medico.cs" />
     <Compile Include="Models\Monitoreo.cs" />
     <Compile Include="Models\MonitoreoPacientes.cs" />
     <Compile Include="Models\PlanTerapeutico.cs" />
-    <Compile Include="Models\Practicante.cs" />
     <Compile Include="Models\Propietario.cs" />
     <Compile Include="Models\Raza.cs" />
     <Compile Include="Models\Remision.cs" />
+    <Compile Include="Models\Veterinario.cs" />
     <Compile Include="Models\ViaSuministro.cs" />
     <Compile Include="Models\SolicitudExamen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -592,18 +614,12 @@
     <Content Include="Views\Mascotas\Details.cshtml" />
     <Content Include="Views\Mascotas\Edit.cshtml" />
     <Content Include="Views\Mascotas\Index.cshtml" />
-    <Content Include="Views\Practicantes\Create.cshtml" />
     <Content Include="Views\Practicantes\Index.cshtml" />
     <Content Include="Views\Propietarios\Create.cshtml" />
     <Content Include="Views\Propietarios\Delete.cshtml" />
     <Content Include="Views\Propietarios\Details.cshtml" />
     <Content Include="Views\Propietarios\Edit.cshtml" />
     <Content Include="Views\Propietarios\Index.cshtml" />
-    <Content Include="Views\Doctors\Create.cshtml" />
-    <Content Include="Views\Doctors\Delete.cshtml" />
-    <Content Include="Views\Doctors\Details.cshtml" />
-    <Content Include="Views\Doctors\Edit.cshtml" />
-    <Content Include="Views\Doctors\Index.cshtml" />
     <Content Include="Views\GestionVacunacions\Create.cshtml" />
     <Content Include="Views\GestionVacunacions\Delete.cshtml" />
     <Content Include="Views\GestionVacunacions\Details.cshtml" />
@@ -685,6 +701,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802051409047_mdhtdh.resx">
       <DependentUpon>201802051409047_mdhtdh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804120159282_mg1ds.resx">
+      <DependentUpon>201804120159282_mg1ds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804120337406_mdbsj.resx">
+      <DependentUpon>201804120337406_mdbsj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804120340327_mgVeterinario.resx">
+      <DependentUpon>201804120340327_mgVeterinario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804120349023_mg14r3dd.resx">
+      <DependentUpon>201804120349023_mg14r3dd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804120352344_scacuja.resx">
+      <DependentUpon>201804120352344_scacuja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804120411431_mcashcvjf.resx">
+      <DependentUpon>201804120411431_mcashcvjf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

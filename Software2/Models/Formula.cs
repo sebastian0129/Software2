@@ -28,10 +28,10 @@ namespace Software2.Models
         public virtual ICollection<Medicamento> medicamentos { get; set; }
 
         [Display(Name = "Cédula Practicante")]
-        [ForeignKey("Practicante")]
-        public string practicanteID { get; set; }
+        [ForeignKey("veterinario")]
+        public string veterinarioD { get; set; }
 
-        public virtual Practicante Practicante { get; set; }
+        public virtual Veterinario veterinario { get; set; }
 
     }
 }

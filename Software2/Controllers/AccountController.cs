@@ -150,32 +150,33 @@ namespace Software2.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
-
         {
 
             if (ModelState.IsValid)
             {
+                if (existEmail(model.Email))
+                {
+                    ModelState.AddModelError("","El correo ya se encuentra registrado");
+                    return View(model);
+                }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
 
-                //var resultado = UserManager.Create(user, model.Password);
-               
-
-
                 if (result.Succeeded)
                 {
+                   
+
                     var result1 = await UserManager.AddToRoleAsync(user.Id, "Practicante");
 
-                    Practicante practicanteNew = new Practicante();
-                    practicanteNew.practicanteID = user.Id;
+                    Veterinario practicanteNew = new Veterinario();
+                    practicanteNew.ID = user.Id;
                     practicanteNew.nombre = model.nombre;
                     practicanteNew.apellido = model.apellido;
                     practicanteNew.correo = model.Email;
-                    practicanteNew.password = null;
-                    practicanteNew.repetirPassword = null;
-
-                    db.Practicantes.Add(practicanteNew);
+                    practicanteNew.role = "Practicante";
+                    
+                    db.Veterinarios.Add(practicanteNew);
                     db.SaveChanges();
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -464,6 +465,10 @@ namespace Software2.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+        private bool existEmail(string email)
+        {
+            return db.Users.Count(xx => xx.Email == email) > 0;
         }
 
         private ActionResult RedirectToLocal(string returnUrl)

@@ -20,58 +20,58 @@ namespace Software2.Controllers
         // GET: Medicos
         public ActionResult Index()
         {
-            return View(db.Medicos.ToList());
+            return View(db.Veterinarios.Where(xx=>xx.role=="Medico"));
         }
 
       
         // GET: Medicos/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Medicos/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Medico medico)
-        {
-            if (ModelState.IsValid)
-            {
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(Medico medico)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
 
-                if (existeMedico(medico.correo))
-                {
-                    ModelState.AddModelError("", "Este correo ya se encuentra registrado");
-                    return View();
-                }
+        //        if (existeMedico(medico.correo))
+        //        {
+        //            ModelState.AddModelError("", "Este correo ya se encuentra registrado");
+        //            return View();
+        //        }
 
-                using (ApplicationDbContext db = new ApplicationDbContext())
-                {
+        //        using (ApplicationDbContext db = new ApplicationDbContext())
+        //        {
 
-                    var UserManager = new UserManager<ApplicationUser>(
-                        new UserStore<ApplicationUser>(db));
+        //            var UserManager = new UserManager<ApplicationUser>(
+        //                new UserStore<ApplicationUser>(db));
 
-                    var user = new ApplicationUser()
-                    {
-                        Email = medico.correo,
-                        UserName = medico.correo
-                    };
-                    var resultado = UserManager.Create(user, medico.password);
-                    var result1 = UserManager.AddToRole(user.Id, "Medico");
+        //            var user = new ApplicationUser()
+        //            {
+        //                Email = medico.correo,
+        //                UserName = medico.correo
+        //            };
+        //            var resultado = UserManager.Create(user, medico.password);
+        //            var result1 = UserManager.AddToRole(user.Id, "Medico");
 
-                    medico.medicoID = user.Id;
+        //            medico.medicoID = user.Id;
 
 
-                }
+        //        }
 
-                db.Medicos.Add(medico);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //        db.Medicos.Add(medico);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-            return View(medico);
-        }
+        //    return View(medico);
+        //}
 
 
 

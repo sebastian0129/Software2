@@ -133,8 +133,10 @@ namespace Software2.Models
         {
             Anormal,Normal,No_aplica
         }
+        [ForeignKey("veterinario")]
+        public string veterinarioFK { get; set; }
+        public Veterinario veterinario { get; set; }
 
-        
         public virtual HistoriaClinica historiaclinica { get; set; }
     }
 }

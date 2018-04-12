@@ -87,7 +87,7 @@ namespace Software2.Controllers
             }
 
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", remision.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
+           ////** ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
             return View(remision);
         }
 
@@ -104,7 +104,7 @@ namespace Software2.Controllers
                 return HttpNotFound();
             }
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", remision.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
+          //////**  ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
             return View(remision);
         }
 
@@ -122,7 +122,7 @@ namespace Software2.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", remision.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
+           //** ViewBag.practicanteID = new SelectList(db.Mascotas, "id", "nombre", remision.practicanteID);
             return View(remision);
         }
 

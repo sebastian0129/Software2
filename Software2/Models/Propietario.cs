@@ -33,5 +33,8 @@ namespace Software2.Models //Carlos Mario Jaramillo
 
         public virtual List<Mascota> mascotas { get; set; }
 
+
+        
+
     }
 }

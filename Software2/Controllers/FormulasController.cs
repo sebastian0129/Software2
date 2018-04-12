@@ -53,7 +53,7 @@ namespace Software2.Controllers
         public ActionResult Create()
         {
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre");
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre");
+            //////////////ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre");
 
             Formula formula = new Formula();
             formula.fecha = DateTime.Today;
@@ -80,7 +80,7 @@ namespace Software2.Controllers
             }
 
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", formula.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
+      ///////*      ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
             return View(formula);
         }
 
@@ -97,7 +97,7 @@ namespace Software2.Controllers
                 return HttpNotFound();
             }
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", formula.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
+         //////////////*   ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
             return View(formula);
         }
 
@@ -115,7 +115,7 @@ namespace Software2.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.mascotaID = new SelectList(db.Mascotas, "id", "nombre", formula.mascotaID);
-            ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
+         //////**   ViewBag.practicanteID = new SelectList(db.Practicantes, "practicanteID", "nombre", formula.practicanteID);
             return View(formula);
         }
 

@@ -26,10 +26,10 @@ namespace Software2.Models
         public virtual Mascota Mascota { get; set; }
 
         [Display(Name = "ID Practicante")]
-        [ForeignKey("Practicante")]
-        public string practicanteID { get; set; }
+        [ForeignKey("veterinario")]
+        public string veterinarioID { get; set; }
 
-        public virtual Practicante Practicante { get; set; }
+        public virtual Veterinario veterinario { get; set; }
 
         [Display(Name = "Region")]
         [Required(ErrorMessage = "Ingrese una region")]

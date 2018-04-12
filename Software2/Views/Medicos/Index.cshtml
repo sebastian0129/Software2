@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Software2.Models.Medico>
+﻿@model IEnumerable<Software2.Models.Veterinario>
 
 @{
     ViewBag.Title = "Index";
@@ -20,12 +20,7 @@
         <th>
             @Html.DisplayNameFor(model => model.correo)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.repetirPassword)
-        </th>
+       
         <th></th>
     </tr>
 
@@ -40,16 +35,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.correo)
         </td>
+      
         <td>
-            @Html.DisplayFor(modelItem => item.password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.repetirPassword)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.medicoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.medicoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.medicoID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
