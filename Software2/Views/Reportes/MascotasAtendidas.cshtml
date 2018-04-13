@@ -1,19 +1,19 @@
-﻿@model IEnumerable<Software2.Models.Veterinario>
+﻿
+@model IEnumerable<Software2.Models.Veterinario>
 
 @{
     ViewBag.Title = "Médicos";
 }
+@{ 
+    int total = 0;
+}
 
-<h2 class="text-center">Médicos veterinarios</h2>
+@{
+    ViewBag.Title = "Mascotas atendidas";
+}
 
-<a class="btn btn-success btn-sm" href='@Url.Action("Create", "Medicos" )'>
-    <span class="glyphicon glyphicon-plus"></span>
+<h2 class="text-center">Mascotas atendidas</h2>
 
-</a>
-Nuevo médico
-
-
-<br />
 <table class="table table-bordered" id="tablaMedicos">
     <thead>
         <tr>
@@ -24,7 +24,7 @@ Nuevo médico
                 @Html.DisplayNameFor(model => model.apellido)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.correo)
+                Controles atendidos
             </th>
 
             <th></th>
@@ -33,6 +33,10 @@ Nuevo médico
     <tbody>
         @foreach (var item in Model)
         {
+
+            
+            total += item.mascotasAtendidas;
+
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.nombre)
@@ -41,16 +45,18 @@ Nuevo médico
                     @Html.DisplayFor(modelItem => item.apellido)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.correo)
+                    @Html.DisplayFor(modelItem => item.mascotasAtendidas)
                 </td>
 
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+
+                    <button class="btn btn-info">Info</button>
+
                 </td>
             </tr>
+
         }
     </tbody>
 
 </table>
+@total

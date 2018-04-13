@@ -32,7 +32,12 @@ $(document).ready(function () {
                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
            }
        });
-    
+    $('#tablaMedicos').DataTable(
+        {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            }
+        });
     
    
 });

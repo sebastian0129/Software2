@@ -23,55 +23,60 @@ namespace Software2.Controllers
             return View(db.Veterinarios.Where(xx=>xx.role=="Medico"));
         }
 
-      
-        // GET: Medicos/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
 
-        // POST: Medicos/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(Medico medico)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
+        //GET: Medicos/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        //        if (existeMedico(medico.correo))
-        //        {
-        //            ModelState.AddModelError("", "Este correo ya se encuentra registrado");
-        //            return View();
-        //        }
+        //POST: Medicos/Create
+        //Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse.Para obtener
+        //más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
 
-        //        using (ApplicationDbContext db = new ApplicationDbContext())
-        //        {
+       [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(RegisterViewModel medico)
+        {
+            if (ModelState.IsValid)
+            {
 
-        //            var UserManager = new UserManager<ApplicationUser>(
-        //                new UserStore<ApplicationUser>(db));
+                if (existeMedico(medico.Email))
+                {
+                    ModelState.AddModelError("", "Este correo ya se encuentra registrado");
+                    return View();
+                }
+                Veterinario veterinario=new Veterinario();
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
 
-        //            var user = new ApplicationUser()
-        //            {
-        //                Email = medico.correo,
-        //                UserName = medico.correo
-        //            };
-        //            var resultado = UserManager.Create(user, medico.password);
-        //            var result1 = UserManager.AddToRole(user.Id, "Medico");
+                    var UserManager = new UserManager<ApplicationUser>(
+                        new UserStore<ApplicationUser>(db));
 
-        //            medico.medicoID = user.Id;
+                    var user = new ApplicationUser()
+                    {
+                        Email = medico.Email,
+                        UserName = medico.Email
+                    };
+                    var resultado = UserManager.Create(user, medico.Password);
+                    var result1 = UserManager.AddToRole(user.Id, "Medico");
 
+                    //medico.ID = user.Id;
+                    veterinario.ID = user.Id;
+                    veterinario.nombre = medico.nombre;
+                    veterinario.apellido = medico.apellido;
+                    veterinario.role = "Medico";
+                    veterinario.correo = medico.Email;
 
-        //        }
+                }
 
-        //        db.Medicos.Add(medico);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
+                db.Veterinarios.Add(veterinario);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-        //    return View(medico);
-        //}
+            return View(medico);
+        }
 
 
 

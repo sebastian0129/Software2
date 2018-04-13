@@ -211,6 +211,7 @@
     <Compile Include="Controllers\PracticantesController.cs" />
     <Compile Include="Controllers\PropietariosController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Controllers\SolicitudExamenController.cs" />
     <Compile Include="Controllers\RemisionesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -691,6 +692,7 @@
     <Content Include="Views\Administradores\Index.cshtml" />
     <Content Include="Views\Medicos\Create.cshtml" />
     <Content Include="Views\Medicos\Index.cshtml" />
+    <Content Include="Views\Reportes\MascotasAtendidas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

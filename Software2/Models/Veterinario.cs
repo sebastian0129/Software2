@@ -40,6 +40,15 @@ namespace Software2.Models
         public string role { get; set; }
 
         public List<Control> controles { get; set; }
+
+        public int mascotasAtendidas {
+            get {
+                int total = -1;
+                if (controles != null)
+                    total= controles.Count;
+
+                return total;
+                    } }
     }
 
 }

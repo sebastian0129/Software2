@@ -60,6 +60,9 @@ namespace Software2.Controllers
                 control.historia = control.id;
                 control.id = Metodos.generarCodigo();
                 control.fecha = DateTime.Now;
+
+                control.veterinarioFK = db.Users.FirstOrDefault(xx => xx.Email == control.veterinarioFK).Id;
+
                 db.Controls.Add(control);
                 db.SaveChanges();
                 return RedirectToAction("Details", "HistoriaClinica",new { id = control.historia });
