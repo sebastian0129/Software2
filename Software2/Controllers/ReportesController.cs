@@ -17,5 +17,23 @@ namespace Software2.Controllers
             List<Veterinario> veterinarios = db.Veterinarios.Include(xx => xx.controles).ToList();
             return View(veterinarios);
         }
+        [HttpPost]
+        
+        public JsonResult MascotasAtendidas(modelo model)
+        {
+
+           // List<Veterinario> veterinarios = db.Veterinarios.Include(xx => xx.controles).ToList();
+
+            string salida = "{json:'Salida'}";
+            return Json(model);
+        }
+
+
     }
-}
+        public  class modelo
+        {
+            public string fechaInicio { get; set; }
+            public string fechaFin { get; set; }
+        }
+    
+    }
