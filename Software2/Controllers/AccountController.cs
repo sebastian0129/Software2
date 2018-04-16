@@ -17,13 +17,14 @@ namespace Software2.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
             //holi papus
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -35,9 +36,9 @@ namespace Software2.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -121,7 +122,7 @@ namespace Software2.Controllers
             // Si un usuario introduce códigos incorrectos durante un intervalo especificado de tiempo, la cuenta del usuario 
             // se bloqueará durante un período de tiempo especificado. 
             // Puede configurar el bloqueo de la cuenta en IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -150,14 +151,36 @@ namespace Software2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
             if (ModelState.IsValid)
             {
+                if (existEmail(model.Email))
+                {
+                    ModelState.AddModelError("","El correo ya se encuentra registrado");
+                    return View(model);
+                }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                   
+
+                    var result1 = await UserManager.AddToRoleAsync(user.Id, "Practicante");
+
+                    Veterinario practicanteNew = new Veterinario();
+                    practicanteNew.ID = user.Id;
+                    practicanteNew.nombre = model.nombre;
+                    practicanteNew.apellido = model.apellido;
+                    practicanteNew.correo = model.Email;
+                    practicanteNew.role = "Practicante";
                     
+                    db.Veterinarios.Add(practicanteNew);
+                    db.SaveChanges();
+
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -442,6 +465,10 @@ namespace Software2.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+        private bool existEmail(string email)
+        {
+            return db.Users.Count(xx => xx.Email == email) > 0;
         }
 
         private ActionResult RedirectToLocal(string returnUrl)

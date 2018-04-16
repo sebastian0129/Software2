@@ -37,9 +37,7 @@ namespace Software2.Models
         public System.Data.Entity.DbSet<Software2.Models.Propietario> Propietarios { get; set; }
 
         public System.Data.Entity.DbSet<Software2.Models.Mascota> Mascotas { get; set; }
-        public System.Data.Entity.DbSet<Software2.Models.Practicante> Practicantes { get; set; }
-
-        public System.Data.Entity.DbSet<Software2.Models.Doctor> Doctors { get; set; }
+    
         
 
         public System.Data.Entity.DbSet<Software2.Models.SolicitudExamen> SolicitudExamen { get; set; }
@@ -54,8 +52,24 @@ namespace Software2.Models
 
         public System.Data.Entity.DbSet<Software2.Models.HistoriaClinica> HistoriaClinicas { get; set; }
 
+        public System.Data.Entity.DbSet<Software2.Models.Monitoreo> Monitoreos { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.MonitoreoPacientes> MonitoreoPacientes { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.PlanTerapeutico> PlanTerapeuticoes { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Administrador> Administradors { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Veterinario> Veterinarios { get; set; }
+
         public System.Data.Entity.DbSet<Software2.Models.Remision> Remisions { get; set; }
 
-        public System.Data.Entity.DbSet<Software2.Models.MedicamentosFormula> MedicamentosFormulas { get; set; }
+        public System.Data.Entity.DbSet<Software2.Models.Auto_Cirugia> Auto_Cirugia { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Auto_Necropsia> Auto_Necropsia { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Auto_Eutanasia> Auto_Eutanasia { get; set; }
+
+        public System.Data.Entity.DbSet<Software2.Models.Auto_Consentimiento> Auto_Consentimiento { get; set; }
     }
 }

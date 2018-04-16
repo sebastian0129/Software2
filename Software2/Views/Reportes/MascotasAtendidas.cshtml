@@ -1,0 +1,159 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Médicos";
+}
+@{
+    int total = 0;
+}
+
+@{
+    ViewBag.Title = "Mascotas atendidas";
+}
+
+
+
+
+
+<h2 class="text-center">Mascotas atendidas</h2>
+
+
+<div class="container">
+    <div style="background:#fff; margin:0 auto;">
+
+
+        <div class="form-inline text-center">
+            <div class="form-group">
+                <label for="DateTime1">Fecha inicio</label>
+                <input type="date" class="form-control" id="DateTime1">
+            </div>
+            <div class="form-group">
+                <label for="DateTime2">Fecha fin:</label>
+                <input type="date" class="form-control" id="DateTime2">
+            </div>
+
+            <button class="btn btn-default" id="BtnEnviar">Consultar</button>
+        </div>
+
+
+        <h3 id="total">Total mascotas atendidas:</h3>
+    </div>
+</div>
+<br />
+<div class="container">
+    <table class="table table-bordered" id="tablaReporte">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Correo
+                </th>
+                <th>
+                    Controles atendidos
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody id="tablaBody">
+            
+        </tbody>
+
+    </table>
+
+</div>
+
+
+
+
+
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script src="~/Scripts/moment-2.10.3.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+
+
+
+<script type="text/javascript" id="DateTime1">
+
+
+    $(function () {
+        $("#BtnEnviar").click(function () {
+            
+            var url = "@Url.Action("MascotasAtendidas", "Reportes")";
+            var data = {
+                fechaInicio:document.getElementById("DateTime1").value ,
+                fechaFin: document.getElementById("DateTime2").value
+            }
+            $.post(url, data).done(function (data) {
+
+                mostrar(data);
+                
+
+            }).fail(manejarErrorAjax).always(function () {
+
+            });
+
+
+
+        });
+
+    function manejarErrorAjax(err) {
+        console.log(err.responseText);
+    }
+
+    });
+
+    function mostrar(data) {
+        
+        var veterinarios = JSON.parse(data);
+        var tabla = document.getElementById("tablaBody");
+        var total = 0;
+        tabla.innerHTML = '';
+
+        for (i in veterinarios) {
+            var x = document.createElement("tr");
+            
+           
+            var nombre = document.createElement("td");
+            var t = document.createTextNode(veterinarios[i].nombre);
+            nombre.appendChild(t);
+            x.appendChild(nombre);
+
+            var apellido = document.createElement("td");
+            var t = document.createTextNode(veterinarios[i].apellido);
+            apellido.appendChild(t);
+            x.appendChild(apellido);
+
+
+            var correo = document.createElement("td");
+
+            var a = document.createElement("a");
+            var t = document.createTextNode(veterinarios[i].correo);
+            a.appendChild(t);
+            correo.appendChild(a);
+            x.appendChild(correo);
+
+
+            var mascotas = document.createElement("td");
+            var t = document.createTextNode(veterinarios[i].mascotasAtendidas);
+            mascotas.appendChild(t);
+            x.appendChild(mascotas);
+
+            tabla.appendChild(x);
+
+            total += veterinarios[i].mascotasAtendidas;
+        }
+        var totalValue = document.getElementById("total");
+        totalValue.innerHTML = "Total mascotas atendidas:" + total;
+    }
+
+
+
+
+</script>

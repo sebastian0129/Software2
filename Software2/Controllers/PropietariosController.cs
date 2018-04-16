@@ -10,6 +10,7 @@ using Software2.Models;
 
 namespace Software2.Controllers //Carlos Mario Jaramillo 
 {
+    [Authorize]
     public class PropietariosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

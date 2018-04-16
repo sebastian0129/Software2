@@ -15,13 +15,19 @@
             @Html.DisplayNameFor(model => model.nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.expresion)
+            @Html.DisplayNameFor(model => model.dosis)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.lote)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.viaSuministro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frecuencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
         </th>
         <th></th>
     </tr>
@@ -32,13 +38,19 @@
             @Html.DisplayFor(modelItem => item.nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.expresion)
+            @Html.DisplayFor(modelItem => item.dosis)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.lote)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.viaSuministro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.frecuencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.medicamentoID }) |

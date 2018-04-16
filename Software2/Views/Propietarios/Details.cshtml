@@ -1,50 +1,90 @@
 ﻿@model Software2.Models.Propietario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles propietario";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">Detalles propietario</h2>
+<br />
 
-<div>
-    <h4>Propietario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+    
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td class="col-xs-4" align="center">
+                <img  src="~/Images/propietario.png"  style="width:50%; height:auto;" />
+                </td>   
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+                
+            <td class="col-xs-8">
+                <h3>@Html.DisplayFor(model => model.nombre) @Html.DisplayFor(model => model.apellido)</h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.apellido)
-        </dt>
+                    Cédula: @Html.DisplayFor(model => model.cedula)
 
-        <dd>
-            @Html.DisplayFor(model => model.apellido)
-        </dd>
+                    <br />
+                
+                    Celular: @Html.DisplayFor(model => model.celular)
+                <br />             
+                
+                    Correo: @Html.DisplayFor(model => model.correo)
 
-        <dt>
-            @Html.DisplayNameFor(model => model.celular)
-        </dt>
+                
+                    
 
-        <dd>
-            @Html.DisplayFor(model => model.celular)
-        </dd>
+            </td>
+        </tr>
+        
+    </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.correo)
-        </dt>
+    <h3 class="text-center">Mascotas</h3>
+    <table class="table table-bordered table-striped">
+       
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+               Especie
+            </th>
+            <th>
+                Edad (años)
+            </th>
+            <th>
+            </th>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.correo)
-        </dd>
+        @foreach (var item in Model.mascotas) { 
+          
 
-    </dl>
-</div>
+            <tr>
+                <td>
+                    @item.nombre
+                </td>
+              
+                <td>
+                    @item.especieFK.nombre
+                </td>
+                <td>
+                    @item.edad
+                </td>
+                <td>
+                    <a class="btn btn-info btn-sm" href='@Url.Action("Details", "Mascotas",new { id = item.id}) '>
+                        <span class="glyphicon glyphicon-info-sign"></span> Datos mascota
+                    </a>
+                </td>
+            </tr>
+
+            }
+
+        </table>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.cedula }) |
-    @Html.ActionLink("Back to List", "Index")
+
+    <a class="btn btn-warning btn-sm" href='@Url.Action("Edit", "Propietarios",new { id = Model.cedula}) ' data-toggle="tooltip" title="editar propietario" data-inverted="">
+        <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+
+    <a class="btn btn-sm" href='@Url.Action("Index", "Propietarios") ' data-toggle="tooltip" title="editar propietario" data-inverted="">
+        Regresar
+    </a>
+
 </p>

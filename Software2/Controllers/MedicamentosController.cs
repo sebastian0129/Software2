@@ -46,7 +46,7 @@ namespace Software2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "medicamentoID,nombre,expresion,lote,viaSuministro")] Medicamento medicamento)
+        public ActionResult Create([Bind(Include = "medicamentoID,nombre,dosis,lote,viaSuministro,frecuencia,cantidad")] Medicamento medicamento)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Software2.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "medicamentoID,nombre,expresion,lote,viaSuministro")] Medicamento medicamento)
+        public ActionResult Edit([Bind(Include = "medicamentoID,nombre,dosis,lote,viaSuministro,frecuencia,cantidad")] Medicamento medicamento)
         {
             if (ModelState.IsValid)
             {

@@ -10,6 +10,7 @@ using Software2.Models;
 
 namespace Software2.Controllers
 {
+    [Authorize]
     public class SolicitudExamenController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,7 +18,7 @@ namespace Software2.Controllers
         // GET: SolicitudExamen
         public ActionResult Index()
         {
-            var solicitudExamen = db.SolicitudExamen.Include(s => s.mascotaFK).Include(s => s.practicanteFK);
+            var solicitudExamen = db.SolicitudExamen.Include(s => s.mascotaFK);
             return View(solicitudExamen.ToList());
         }
 
@@ -40,7 +41,7 @@ namespace Software2.Controllers
         public ActionResult Create()
         {
             ViewBag.mascota = new SelectList(db.Mascotas, "id", "nombre");
-            ViewBag.idPracticante = new SelectList(db.Practicantes, "practicanteID", "nombre");
+         /////**   ViewBag.idPracticante = new SelectList(db.Practicantes, "practicanteID", "nombre");
             return View();
         }
 
@@ -59,7 +60,7 @@ namespace Software2.Controllers
             }
 
             ViewBag.mascota = new SelectList(db.Mascotas, "id", "nombre", solicitudExamen.mascota);
-            ViewBag.idPracticante = new SelectList(db.Practicantes, "practicanteID", "nombre", solicitudExamen.idPracticante);
+           ////***** ViewBag.idPracticante = new SelectList(db.Practicantes, "practicanteID", "nombre", solicitudExamen.idPracticante);
             return View(solicitudExamen);
         }
 
@@ -76,7 +77,7 @@ namespace Software2.Controllers
                 return HttpNotFound();
             }
             ViewBag.mascota = new SelectList(db.Mascotas, "id", "nombre", solicitudExamen.mascota);
-            ViewBag.idPracticante = new SelectList(db.Practicantes, "practicanteID", "nombre", solicitudExamen.idPracticante);
+           ////*** ViewBag.idPracticante = new SelectList(db.Practicantes, "practicanteID", "nombre", solicitudExamen.idPracticante);
             return View(solicitudExamen);
         }
 
@@ -94,7 +95,7 @@ namespace Software2.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.mascota = new SelectList(db.Mascotas, "id", "nombre", solicitudExamen.mascota);
-            ViewBag.idPracticante = new SelectList(db.Practicantes, "practicanteID", "nombre", solicitudExamen.idPracticante);
+           ////** ViewBag.idPracticante = new SelectList(db.Practicantes, "practicanteID", "nombre", solicitudExamen.idPracticante);
             return View(solicitudExamen);
         }
 
