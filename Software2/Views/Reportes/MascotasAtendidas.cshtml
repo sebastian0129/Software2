@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<Software2.Models.Veterinario>
+
 
 @{
     ViewBag.Title = "Médicos";
@@ -12,58 +12,67 @@
     ViewBag.Title = "Mascotas atendidas";
 }
 
-<button id="BtnEnviar" name="BtnEnviar">enviar</button>
 
-<input type="date" class="form-control"/>
+
+
 
 <h2 class="text-center">Mascotas atendidas</h2>
 
-<table class="table table-bordered" id="tablaMedicos">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.apellido)
-            </th>
-            <th>
-                Controles atendidos
-            </th>
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="container">
+    <div style="background:#fff; margin:0 auto;">
 
 
-            total += item.mascotasAtendidas;
+        <div class="form-inline text-center">
+            <div class="form-group">
+                <label for="DateTime1">Fecha inicio</label>
+                <input type="date" class="form-control" id="DateTime1">
+            </div>
+            <div class="form-group">
+                <label for="DateTime2">Fecha fin:</label>
+                <input type="date" class="form-control" id="DateTime2">
+            </div>
 
+            <button class="btn btn-default" id="BtnEnviar">Consultar</button>
+        </div>
+
+
+        <h3 id="total">Total mascotas atendidas:</h3>
+    </div>
+</div>
+<br />
+<div class="container">
+    <table class="table table-bordered" id="tablaReporte">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.apellido)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.mascotasAtendidas)
-                </td>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Correo
+                </th>
+                <th>
+                    Controles atendidos
+                </th>
 
-                <td>
 
-                    <button class="btn btn-info">Info</button>
-
-                </td>
             </tr>
+        </thead>
+        <tbody id="tablaBody">
+            
+        </tbody>
 
-        }
-    </tbody>
+    </table>
 
-</table>
-@total
+</div>
+
+
+
+
+
 <script src="~/Scripts/jquery-3.1.1.js"></script>
 <script src="~/Scripts/moment-2.10.3.js"></script>
 <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
@@ -71,18 +80,20 @@
 
 
 <script type="text/javascript" id="DateTime1">
-   
+
 
     $(function () {
-        $("#BtnEnviar").click(function () {                             
-            alert(document.getElementById("DateTime1").Value);
-            var url = "@Url.Action("MascotasAtendidas","Reportes")";
+        $("#BtnEnviar").click(function () {
+            
+            var url = "@Url.Action("MascotasAtendidas", "Reportes")";
             var data = {
-                fechaInicio:"'"+ $("#DateTime1").val() +"'",
-                fechaFin: "fin"
+                fechaInicio:document.getElementById("DateTime1").value ,
+                fechaFin: document.getElementById("DateTime2").value
             }
             $.post(url, data).done(function (data) {
-                alert(data.fechaInicio);
+
+                mostrar(data);
+                
 
             }).fail(manejarErrorAjax).always(function () {
 
@@ -98,8 +109,49 @@
 
     });
 
+    function mostrar(data) {
+        
+        var veterinarios = JSON.parse(data);
+        var tabla = document.getElementById("tablaBody");
+        var total = 0;
+        tabla.innerHTML = '';
+
+        for (i in veterinarios) {
+            var x = document.createElement("tr");
+            
+           
+            var nombre = document.createElement("td");
+            var t = document.createTextNode(veterinarios[i].nombre);
+            nombre.appendChild(t);
+            x.appendChild(nombre);
+
+            var apellido = document.createElement("td");
+            var t = document.createTextNode(veterinarios[i].apellido);
+            apellido.appendChild(t);
+            x.appendChild(apellido);
 
 
+            var correo = document.createElement("td");
+
+            var a = document.createElement("a");
+            var t = document.createTextNode(veterinarios[i].correo);
+            a.appendChild(t);
+            correo.appendChild(a);
+            x.appendChild(correo);
+
+
+            var mascotas = document.createElement("td");
+            var t = document.createTextNode(veterinarios[i].mascotasAtendidas);
+            mascotas.appendChild(t);
+            x.appendChild(mascotas);
+
+            tabla.appendChild(x);
+
+            total += veterinarios[i].mascotasAtendidas;
+        }
+        var totalValue = document.getElementById("total");
+        totalValue.innerHTML = "Total mascotas atendidas:" + total;
+    }
 
 
 

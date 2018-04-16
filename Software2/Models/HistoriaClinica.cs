@@ -21,7 +21,7 @@ namespace Software2.Models
        
 
         public virtual List<Control> controles { get; set; }
-        public virtual Mascota mascota { get; set; }
+        public  virtual Mascota mascota { get; set; }
 
         public virtual List<Monitoreo> monitoreo { get; set; }
     }

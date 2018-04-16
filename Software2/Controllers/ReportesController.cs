@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Web.Script.Serialization;
+
 namespace Software2.Controllers
 {
     public class ReportesController : Controller
@@ -14,18 +16,47 @@ namespace Software2.Controllers
         public ActionResult MascotasAtendidas()
         {
 
-            List<Veterinario> veterinarios = db.Veterinarios.Include(xx => xx.controles).ToList();
-            return View(veterinarios);
+           
+            return View();
         }
         [HttpPost]
         
         public JsonResult MascotasAtendidas(modelo model)
         {
+            var json="{}";
+            try
+            {
+                DateTime inicio = DateTime.ParseExact(model.fechaInicio, "yyyy-MM-dd",
+                                           System.Globalization.CultureInfo.InvariantCulture);
 
-           // List<Veterinario> veterinarios = db.Veterinarios.Include(xx => xx.controles).ToList();
+                DateTime fin = DateTime.ParseExact(model.fechaFin, "yyyy-MM-dd",
+                                           System.Globalization.CultureInfo.InvariantCulture);
+                var query = "select * from veterinarios  inner join Controls on  veterinarios.id=controls.veterinarioFK where  fecha>='" + inicio + "' and fecha<='" + fin + "'";
 
-            string salida = "{json:'Salida'}";
-            return Json(model);
+                List<Veterinario> consultas = db.Veterinarios.SqlQuery(query).ToList();
+
+                List<Veterinario> salida=new List<Veterinario>();
+                foreach (var item in consultas)
+                {
+                    Veterinario  vet= db.Veterinarios.Include(xx => xx.controles).FirstOrDefault(xx => xx.ID == item.ID);
+
+                    foreach (var item2 in vet.controles)
+                    {
+                        item2.veterinario = null;
+                    }
+                    salida.Add(vet);
+                }
+
+                var jsonSerialiser = new JavaScriptSerializer();
+                 json = jsonSerialiser.Serialize(salida);
+            }
+            catch(Exception ex)
+            {
+
+            }
+           
+
+            return Json(json);
         }
 
 
