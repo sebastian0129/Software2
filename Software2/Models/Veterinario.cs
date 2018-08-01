@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -40,8 +39,7 @@ namespace Software2.Models
 
         public string role { get; set; }
 
-        
-        public  List<Control> controles { get; set; }
+        public List<Control> controles { get; set; }
 
         public int mascotasAtendidas {
             get {

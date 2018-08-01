@@ -137,6 +137,6 @@ namespace Software2.Models
         public string veterinarioFK { get; set; }
         public Veterinario veterinario { get; set; }
 
-        public  HistoriaClinica historiaclinica { get; set; }
+        public virtual HistoriaClinica historiaclinica { get; set; }
     }
 }

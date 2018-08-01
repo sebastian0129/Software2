@@ -30,7 +30,7 @@ namespace Software2.Models
 
         public virtual HistoriaClinica historia_clinica { get; set; }
         
-        public  List<MonitoreoPacientes> monitoreopacientes { get; set; }
-        public  List<PlanTerapeutico> planterapeutico { get; set; }
+        public virtual List<MonitoreoPacientes> monitoreopacientes { get; set; }
+        public virtual List<PlanTerapeutico> planterapeutico { get; set; }
     }
 }
